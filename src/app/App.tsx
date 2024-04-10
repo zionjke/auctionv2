@@ -3,10 +3,9 @@ import './styles/index.scss';
 import {classNames} from "shared/lib/classNames";
 import {AppRouter} from "app/providers/Router";
 
-
 const App = () => {
     return (
-        <div className={classNames('app', {}, [])}>
+        <div className={classNames('app')}>
             <AppRouter/>
         </div>
     );

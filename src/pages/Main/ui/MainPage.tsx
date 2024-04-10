@@ -1,10 +1,11 @@
 import React from 'react';
+import {Navbar} from "widgets/Navbar";
 
 const MainPage = () => {
     return (
-        <div>
-            Main page
-        </div>
+       <div>
+           <Navbar/>
+       </div>
     );
 };
 
