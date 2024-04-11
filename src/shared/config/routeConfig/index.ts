@@ -1,7 +1,7 @@
-import {mainRouteConfig, MainRoutes, MainRoutePath} from "./mainRouteConfig";
+import {routeConfig, Routes, RoutePath} from "./routeConfig";
 
 export {
-    mainRouteConfig,
-    MainRoutes,
-    MainRoutePath,
+    routeConfig,
+    Routes,
+    RoutePath,
 };

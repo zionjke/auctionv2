@@ -1,5 +1,3 @@
-import {Navbar} from "./ui/Navbar";
-import {navbarConfig} from "./config/navbarConfig";
+import {NavbarContainer as NavBar} from "widgets/Navbar/ui/NavbarContainer";
 
-
-export {Navbar, navbarConfig}
+export {NavBar}
