@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {NavbarComponent} from "./NavbarComponent";
 import {navbarConfig} from "../config/navbarConfig";
 
@@ -6,9 +6,9 @@ interface NavbarContainerProps {
     className?: string;
 }
 export const NavbarContainer: FC<NavbarContainerProps> = ({className}) => {
-    const [campaignMenuOpen, setCampaignMenuOpen] = React.useState(true);
-    const [settingsMenuOpen, setSettingsMenuOpen] = React.useState(false);
-    const [selectedPath, setSelectedPath] = React.useState("");
+    const [campaignMenuOpen, setCampaignMenuOpen] = useState(true);
+    const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
+    const [selectedPath, setSelectedPath] = useState("");
 
     const toggleListItemClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
