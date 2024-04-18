@@ -1,0 +1,39 @@
+.wrapper {
+  padding: 30px;
+  border-bottom: var(--border);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo_section {
+    &__logo {
+      width: 50px !important;
+      height: 50px !important;
+    }
+
+  &__link {
+    text-decoration: none;
+    color: #1876D2;
+  }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 700;
+    }
+}
+
+.user_menu {
+
+  &__avatar {
+    width: 55px !important;
+    height: 55px !important;
+  }
+
+  &_switch_label {
+    color: #1876D2;
+  }
+}
