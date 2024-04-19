@@ -43,14 +43,14 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                     <QueryStatsIcon color="primary"/>
                 </ListItemIcon>
                 <Link className={cls.link} to={RoutePath[Routes.MAIN]}>
-                    <ListItemText primary="Campaign Insights"/>
+                    <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary="Campaign Insights"/>
                 </Link>
             </ListItemButton>
             <ListItemButton onClick={onCampaignMenuClick}>
                 <ListItemIcon>
                     <CampaignIcon color="primary"/>
                 </ListItemIcon>
-                <ListItemText primary="Campaign Management"/>
+                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary="Campaign Management"/>
                 {campaignMenuOpen ? <ExpandLess/> : <ExpandMore/>}
             </ListItemButton>
             <Collapse in={campaignMenuOpen} timeout="auto" unmountOnExit>
@@ -65,7 +65,7 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                                 {icon}
                             </ListItemIcon>
                             <Link className={cls.link} to={path}>
-                                <ListItemText primary={title}/>
+                                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary={title}/>
                             </Link>
                         </ListItemButton>
                     ))}
@@ -75,7 +75,7 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                 <ListItemIcon>
                     <ManageAccountsIcon color="primary"/>
                 </ListItemIcon>
-                <ListItemText primary="Settings"/>
+                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary="Settings"/>
                 {settingsMenuOpen ? <ExpandLess/> : <ExpandMore/>}
             </ListItemButton>
             <Collapse in={settingsMenuOpen} timeout="auto" unmountOnExit>
@@ -90,7 +90,7 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                                 {icon}
                             </ListItemIcon>
                             <Link className={cls.link} to={path}>
-                                <ListItemText primary={title}/>
+                                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}}  primary={title}/>
                             </Link>
                         </ListItemButton>
                     ))}

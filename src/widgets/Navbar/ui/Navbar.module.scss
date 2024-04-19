@@ -7,4 +7,8 @@
 .link {
   text-decoration: none;
   color: inherit;
+
+  &_text {
+    font-size: 1.2rem !important;
+  }
 }

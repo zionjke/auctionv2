@@ -31,6 +31,7 @@ export const HeaderComponent: FC<HeaderComponentProps> = ({auth, handleChange}) 
                             control={
                                 <Switch
                                     checked={auth}
+                                    color={"default"}
                                     onChange={handleChange}
                                     aria-label="logout switch"
                                 />
