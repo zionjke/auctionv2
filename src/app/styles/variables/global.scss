@@ -4,7 +4,7 @@
 @import '@fontsource/roboto/700.css';
 
 :root {
-  --font-family-main: 'Roboto', sans-serif;
+  --font-family-main: "Public Sans", sans-serif;
 
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -14,5 +14,5 @@
   --font-line-l: 32px;
   --font-l: var(--font-size-l)/var(--font-line-l) var(--font-family-main);
 
-  --border: 1px solid rgba(85, 149, 222, 0.27);
+  --border: 1px solid #F0F0F0;
 }

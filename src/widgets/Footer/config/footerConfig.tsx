@@ -1,7 +1,6 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import XIcon from '@mui/icons-material/X';
 
 export interface IFooterLink {
     title: string;
@@ -39,20 +38,16 @@ export const footerConfig: IFooterConfig = {
     ],
     socialLinks: [
         {
-            icon: <FacebookIcon color={"primary"}/>,
+            icon: <FacebookIcon fontSize={"small"} color={"primary"}/>,
             link: 'https://www.facebook.com/jooble'
         },
         {
-            icon: <LinkedInIcon color={"primary"}/>,
+            icon: <LinkedInIcon fontSize={"small"} color={"primary"}/>,
             link: 'https://www.linkedin.com/company/jooble'
         },
         {
-            icon: <InstagramIcon color={"primary"}/>,
+            icon: <InstagramIcon fontSize={"small"} color={"primary"}/>,
             link: 'https://www.instagram.com/jooblecom/'
-        },
-        {
-            icon: <XIcon color={"primary"}/>,
-            link: 'https://www.xing.com/jooble'
         }
     ]
 }

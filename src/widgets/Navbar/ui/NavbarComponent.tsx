@@ -5,97 +5,102 @@ import {INavbarConfig} from "widgets/Navbar/config/navbarConfig";
 import cls from './Navbar.module.scss'
 import {ListItemButton, ListItemIcon, ListItemText, Collapse, List} from '@mui/material';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import CampaignIcon from '@mui/icons-material/Campaign';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import JoobleLogo from "shared/assets/icons/jooble_default_logo.svg";
 import {classNames} from "shared/lib/classNames";
 
 interface NavbarComponentProps {
     className?: string;
-    campaignMenuOpen: boolean;
-    settingsMenuOpen: boolean;
     selectedPath: string;
     onListItemClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, path: string) => void;
-    onCampaignMenuClick: () => void;
-    onSettingsMenuClick: () => void;
     navbarConfig: INavbarConfig;
 }
 
 export const NavbarComponent: FC<NavbarComponentProps> = ({
     className,
-    campaignMenuOpen,
-    settingsMenuOpen,
     selectedPath,
     onListItemClick,
-    onCampaignMenuClick,
-    onSettingsMenuClick,
     navbarConfig
     }) => {
     return (
-        <List
-            className={classNames(cls.navbar, {}, [className])}
-            component="nav"
-        >
-            <ListItemButton selected={selectedPath === RoutePath[Routes.MAIN]}
-                            onClick={(event) => onListItemClick(event, RoutePath[Routes.MAIN])}>
-                <ListItemIcon>
-                    <QueryStatsIcon color="primary"/>
-                </ListItemIcon>
-                <Link className={cls.link} to={RoutePath[Routes.MAIN]}>
-                    <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary="Campaign Insights"/>
+        <div className={cls.container}>
+            <div className={cls.logo}>
+                <Link to={RoutePath[Routes.MAIN]}>
+                    <JoobleLogo className={cls.logo_icon}/>
                 </Link>
-            </ListItemButton>
-            <ListItemButton onClick={onCampaignMenuClick}>
-                <ListItemIcon>
-                    <CampaignIcon color="primary"/>
-                </ListItemIcon>
-                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary="Campaign Management"/>
-                {campaignMenuOpen ? <ExpandLess/> : <ExpandMore/>}
-            </ListItemButton>
-            <Collapse in={campaignMenuOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    {navbarConfig.campaignsManagement.map(({path, title, icon}) => (
-                        <ListItemButton
-                            selected={selectedPath === path}
-                            onClick={(event) => onListItemClick(event, path)}
-                            key={path}
-                            sx={{pl: 4}}>
-                            <ListItemIcon color="primary">
-                                {icon}
-                            </ListItemIcon>
-                            <Link className={cls.link} to={path}>
-                                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary={title}/>
-                            </Link>
-                        </ListItemButton>
-                    ))}
-                </List>
-            </Collapse>
-            <ListItemButton onClick={onSettingsMenuClick}>
-                <ListItemIcon>
-                    <ManageAccountsIcon color="primary"/>
-                </ListItemIcon>
-                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}} primary="Settings"/>
-                {settingsMenuOpen ? <ExpandLess/> : <ExpandMore/>}
-            </ListItemButton>
-            <Collapse in={settingsMenuOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    {navbarConfig.settings.map(({path, title, icon}) => (
-                        <ListItemButton
-                            selected={selectedPath === path}
-                            onClick={(event) => onListItemClick(event, path)}
-                            key={path}
-                            sx={{pl: 4}}>
-                            <ListItemIcon color="primary">
-                                {icon}
-                            </ListItemIcon>
-                            <Link className={cls.link} to={path}>
-                                <ListItemText primaryTypographyProps={{fontSize: '1.2rem'}}  primary={title}/>
-                            </Link>
-                        </ListItemButton>
-                    ))}
-                </List>
-            </Collapse>
-        </List>
+            </div>
+            <List
+                className={classNames(cls.navbar, {}, [className])}
+                component="nav"
+            >
+                <p className={cls.list_title}>Dashboard</p>
+                <ListItemButton selected={selectedPath === RoutePath[Routes.MAIN]}
+                                onClick={(event) => onListItemClick(event, RoutePath[Routes.MAIN])}>
+                    <ListItemIcon className={cls.icon}>
+                        <QueryStatsIcon fontSize="small" color="primary"/>
+                    </ListItemIcon>
+                    <Link className={cls.link} to={RoutePath[Routes.MAIN]}>
+                        <ListItemText
+                            primaryTypographyProps={
+                                {
+                                    fontSize: '1rem',
+                                    lineHeight: '1.57rem',
+                                    fontWeight: 400,
+                                    color: selectedPath  === RoutePath[Routes.MAIN]
+                                        ? "#1677FF"
+                                        :`rgb(38, 38, 38)`
+                                }
+                            }
+                            primary="Campaign Insights"/>
+                    </Link>
+                </ListItemButton>
+                <p className={cls.list_title}>Campaign Management</p>
+                {navbarConfig.campaignsManagement.map(({path, title, icon}) => (
+                    <ListItemButton
+                        selected={selectedPath === path}
+                        onClick={(event) => onListItemClick(event, path)}
+                        key={path}>
+                        <ListItemIcon className={cls.icon}>
+                            {icon}
+                        </ListItemIcon>
+                        <Link className={cls.link} to={path}>
+                            <ListItemText  primaryTypographyProps={
+                                {
+                                    fontSize: '1rem',
+                                    lineHeight: '1.57rem',
+                                    fontWeight: 400,
+                                    color: selectedPath  === path
+                                        ? "#1677FF"
+                                        :`rgb(38, 38, 38)`
+                                }
+                            } primary={title}/>
+                        </Link>
+                    </ListItemButton>
+                ))}
+                <p className={cls.list_title}>Settings</p>
+                {navbarConfig.settings.map(({path, title, icon}) => (
+                    <ListItemButton
+                        selected={selectedPath === path}
+                        onClick={(event) => onListItemClick(event, path)}
+                        key={path}>
+                        <ListItemIcon className={cls.icon}>
+                            {icon}
+                        </ListItemIcon>
+                        <Link className={cls.link} to={path}>
+                            <ListItemText primaryTypographyProps={
+                                {
+                                    fontSize: '1rem',
+                                    lineHeight: '1.57rem',
+                                    fontWeight: 400,
+                                    color: selectedPath  === path
+                                        ? "#1677FF"
+                                        :`rgb(38, 38, 38)`
+                                }
+                            }  primary={title}/>
+                        </Link>
+                    </ListItemButton>
+                ))}
+            </List>
+        </div>
+
     );
 };

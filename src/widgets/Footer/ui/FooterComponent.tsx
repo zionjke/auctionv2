@@ -12,13 +12,8 @@ interface FooterComponentProps {
 }
 export const FooterComponent:FC<FooterComponentProps> = ({footerConfig, currentYear}) => {
     return (
-       <div className={classNames(cls.footer, {}, [])}>
+       <footer className={classNames(cls.footer, {}, [])}>
             <div className={cls.top__container}>
-                <div className={cls.top__container_logo}>
-                    <div className={cls.top__container_logo_icon}>
-                        <JoobleLogo/>
-                    </div>
-                </div>
                 <div className={cls.top__container_links}>
                     {footerConfig.links.map(({link, title}) => (
                         <Link key={title} className={cls.top__container_links_item} to={link}>{title}</Link>
@@ -37,6 +32,6 @@ export const FooterComponent:FC<FooterComponentProps> = ({footerConfig, currentY
                    ))}
                </div>
            </div>
-       </div>
+       </footer>
     );
 };

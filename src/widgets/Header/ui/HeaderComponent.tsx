@@ -1,46 +1,69 @@
 import React, {FC} from 'react';
 import {classNames} from "shared/lib/classNames";
 import cls from './Header.module.scss'
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import {Link} from "react-router-dom";
 import AvatarImg from 'shared/assets/images/avatar.png';
-import {Avatar, FormControlLabel, FormGroup, Switch} from "@mui/material";
+import {Avatar, IconButton, Menu, MenuItem} from "@mui/material";
+import LogoutIcon from '@mui/icons-material/Logout';
+import {IHeaderMenuItem} from "../config/headerConfig";
 
 interface HeaderComponentProps {
     className?: string;
-    auth: boolean;
-    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    anchorElUser: null | HTMLElement;
+    handleOpenUserMenu: (event: React.MouseEvent<HTMLElement>) => void;
+    handleCloseUserMenu: () => void;
+    headerConfig: IHeaderMenuItem[];
 }
 
-export const HeaderComponent: FC<HeaderComponentProps> = ({auth, handleChange}) => {
+export const HeaderComponent: FC<HeaderComponentProps> = ({
+                                                              anchorElUser,
+                                                              handleOpenUserMenu,
+                                                              handleCloseUserMenu,
+                                                              headerConfig
+                                                          }) => {
     return (
-        <div className={classNames(cls.wrapper, {}, [])}>
+        <header className={classNames(cls.wrapper, {}, [])}>
             <div className={cls.container}>
                 <div className={cls.logo_section}>
-                    <Link className={cls.logo_section__link} to={"/"}>
-                        <AutoGraphIcon className={cls.logo_section__logo} color={"primary"}/>
-                        <h3 className={cls.logo_section__title}>
-                            XING.DE
-                        </h3>
-                    </Link>
                 </div>
                 <div className={cls.user_menu}>
-                    <Avatar className={cls.user_menu__avatar} alt="Avatar" src={AvatarImg} />
-                    <FormGroup>
-                        <FormControlLabel
-                            control={
-                                <Switch
-                                    checked={auth}
-                                    color={"default"}
-                                    onChange={handleChange}
-                                    aria-label="logout switch"
-                                />
-                            }
-                            label={<span className={cls.user_menu_switch_label}>Logout</span>}
-                        />
-                    </FormGroup>
+                    <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                        <Avatar className={cls.user_menu__avatar} alt="Avatar" src={AvatarImg}/>
+                    </IconButton>
+                    <p className={cls.user_menu__text}>xing.de</p>
+                    <Menu
+                        sx={{mt: '45px'}}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                    >
+                        {headerConfig.map(({title,path,icon}) => (
+                            <MenuItem key={path} onClick={handleCloseUserMenu}>
+                                <Link className={cls.menu_item__link} to={path}>
+                                    {icon}
+                                    <p className={cls.menu_item__text}>{title}</p>
+                                </Link>
+                            </MenuItem>
+                        ))}
+                        <MenuItem onClick={handleCloseUserMenu}>
+                            <div className={cls.menu_item__logout}>
+                                <LogoutIcon color={"primary"}/>
+                                <p className={cls.menu_item__text}>Logout</p>
+                            </div>
+                        </MenuItem>
+                    </Menu>
                 </div>
             </div>
-        </div>
+        </header>
     );
 };
