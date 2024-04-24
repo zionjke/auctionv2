@@ -14,7 +14,7 @@ export interface IHeaderMenuItem {
 
 
 export const headerConfig: IHeaderMenuItem[] = [
-    {title: 'Dashboard', path: RoutePath[Routes.MAIN], icon: <QueryStatsIcon fontSize="small" color="primary"/>},
+    {title: 'Dashboard', path: RoutePath[Routes.STATISTIC], icon: <QueryStatsIcon fontSize="small" color="primary"/>},
     {title: 'Account', path: RoutePath[Routes.EDIT_USER], icon: <PersonIcon fontSize="small" color="primary"/>},
     {title: 'Sites', path: RoutePath[Routes.USER_SITES], icon: <LanguageIcon fontSize="small" color="primary"/>},
     {title: 'Support', path: RoutePath[Routes.FEEDBACK], icon: <SupportAgentIcon fontSize="small" color="primary"/>},

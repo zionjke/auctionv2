@@ -52,3 +52,30 @@
 .icon {
   min-width: 37px !important;
 }
+
+.new_label {
+  max-width: 100%;
+  font-size: 0.8125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  white-space: nowrap;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: unset;
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid;
+  color: rgb(22, 119, 255);
+  background-color: rgb(230, 244, 255);
+  border-color: rgb(105, 177, 255);
+
+  &_text {
+    text-overflow: ellipsis;
+    padding-left: 8px;
+    padding-right: 8px;
+    white-space: nowrap;
+  }
+}

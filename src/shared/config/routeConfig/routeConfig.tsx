@@ -2,7 +2,8 @@ import {RouteProps} from "react-router-dom";
 import {MainPage} from "pages/Main";
 
 export enum Routes {
-    MAIN = 'main',
+    STATISTIC = 'statistic',
+    OVERALL_STATISTICS = 'overallStatistics',
     CONTACTS = 'contacts',
     FEEDBACK = 'feedback',
     ALL_CAMPAIGNS = 'allCampaigns',
@@ -17,7 +18,8 @@ export enum Routes {
 }
 
 export const RoutePath: Record<Routes, string> = {
-    [Routes.MAIN]: '/',
+    [Routes.STATISTIC]: '/',
+    [Routes.OVERALL_STATISTICS]: '/overall-statistics',
     [Routes.CONTACTS]: '/contacts',
     [Routes.FEEDBACK]: '/feedback',
     [Routes.CAMPAIGN_CREATE]: '/campaign/create',
@@ -32,9 +34,13 @@ export const RoutePath: Record<Routes, string> = {
 }
 
 export const routeConfig: Record<Routes, RouteProps> = {
-    [Routes.MAIN]: {
-        path: RoutePath[Routes.MAIN],
+    [Routes.STATISTIC]: {
+        path: RoutePath[Routes.STATISTIC],
         element: <MainPage/>,
+    },
+    [Routes.OVERALL_STATISTICS]: {
+        path: RoutePath[Routes.OVERALL_STATISTICS],
+        element: null,
     },
     [Routes.CONTACTS]: {
         path: RoutePath[Routes.CONTACTS],

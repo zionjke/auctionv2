@@ -1,0 +1,31 @@
+.user_menu {
+  display: flex;
+  align-items: center;
+
+  &__avatar {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  &__text {
+    font: var(--font-m);
+    color: #1876D2;
+  }
+}
+
+
+.menu_item {
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    display: flex !important;
+  }
+
+  &__text {
+    font: var(--font-m);
+    margin-left: 10px;
+  }
+
+  &__logout {
+    display: flex;
+  }
+}

@@ -3,8 +3,9 @@ import {Link} from "react-router-dom";
 import {RoutePath, Routes} from "shared/config/routeConfig";
 import {INavbarConfig} from "widgets/Navbar/config/navbarConfig";
 import cls from './Navbar.module.scss'
-import {ListItemButton, ListItemIcon, ListItemText, Collapse, List} from '@mui/material';
+import {ListItemButton, ListItemIcon, ListItemText, List} from '@mui/material';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import JoobleLogo from "shared/assets/icons/jooble_default_logo.svg";
 import {classNames} from "shared/lib/classNames";
 
@@ -16,15 +17,15 @@ interface NavbarComponentProps {
 }
 
 export const NavbarComponent: FC<NavbarComponentProps> = ({
-    className,
-    selectedPath,
-    onListItemClick,
-    navbarConfig
-    }) => {
+                                                              className,
+                                                              selectedPath,
+                                                              onListItemClick,
+                                                              navbarConfig
+                                                          }) => {
     return (
         <div className={cls.container}>
             <div className={cls.logo}>
-                <Link to={RoutePath[Routes.MAIN]}>
+                <Link to={RoutePath[Routes.STATISTIC]}>
                     <JoobleLogo className={cls.logo_icon}/>
                 </Link>
             </div>
@@ -33,71 +34,94 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                 component="nav"
             >
                 <p className={cls.list_title}>Dashboard</p>
-                <ListItemButton selected={selectedPath === RoutePath[Routes.MAIN]}
-                                onClick={(event) => onListItemClick(event, RoutePath[Routes.MAIN])}>
-                    <ListItemIcon className={cls.icon}>
-                        <QueryStatsIcon fontSize="small" color="primary"/>
-                    </ListItemIcon>
-                    <Link className={cls.link} to={RoutePath[Routes.MAIN]}>
+                <Link className={cls.link} to={RoutePath[Routes.STATISTIC]}>
+                    <ListItemButton selected={selectedPath === RoutePath[Routes.STATISTIC]}
+                                    onClick={(event) => onListItemClick(event, RoutePath[Routes.STATISTIC])}>
+                        <ListItemIcon className={cls.icon}>
+                            <QueryStatsIcon fontSize="small" color="primary"/>
+                        </ListItemIcon>
                         <ListItemText
                             primaryTypographyProps={
                                 {
                                     fontSize: '1rem',
                                     lineHeight: '1.57rem',
                                     fontWeight: 400,
-                                    color: selectedPath  === RoutePath[Routes.MAIN]
+                                    color: selectedPath === RoutePath[Routes.STATISTIC]
                                         ? "#1677FF"
-                                        :`rgb(38, 38, 38)`
+                                        : `rgb(38, 38, 38)`
                                 }
                             }
                             primary="Campaign Insights"/>
-                    </Link>
-                </ListItemButton>
-                <p className={cls.list_title}>Campaign Management</p>
-                {navbarConfig.campaignsManagement.map(({path, title, icon}) => (
-                    <ListItemButton
-                        selected={selectedPath === path}
-                        onClick={(event) => onListItemClick(event, path)}
-                        key={path}>
+                    </ListItemButton>
+                </Link>
+                <Link className={cls.link} to={RoutePath[Routes.OVERALL_STATISTICS]}>
+                    <ListItemButton selected={selectedPath === RoutePath[Routes.OVERALL_STATISTICS]}
+                                    onClick={(event) => onListItemClick(event, RoutePath[Routes.OVERALL_STATISTICS])}>
                         <ListItemIcon className={cls.icon}>
-                            {icon}
+                            <DashboardCustomizeIcon fontSize="small" color="primary"/>
                         </ListItemIcon>
-                        <Link className={cls.link} to={path}>
-                            <ListItemText  primaryTypographyProps={
+                        <ListItemText
+                            primaryTypographyProps={
                                 {
                                     fontSize: '1rem',
                                     lineHeight: '1.57rem',
                                     fontWeight: 400,
-                                    color: selectedPath  === path
+                                    color: selectedPath === RoutePath[Routes.OVERALL_STATISTICS]
                                         ? "#1677FF"
-                                        :`rgb(38, 38, 38)`
+                                        : `rgb(38, 38, 38)`
                                 }
-                            } primary={title}/>
-                        </Link>
+                            }
+                            primary="Overall Statistic"/>
+                        <div className={cls.new_label}>
+                            <span className={cls.new_label_text}>new</span>
+                        </div>
                     </ListItemButton>
-                ))}
-                <p className={cls.list_title}>Settings</p>
-                {navbarConfig.settings.map(({path, title, icon}) => (
-                    <ListItemButton
-                        selected={selectedPath === path}
-                        onClick={(event) => onListItemClick(event, path)}
-                        key={path}>
-                        <ListItemIcon className={cls.icon}>
-                            {icon}
-                        </ListItemIcon>
-                        <Link className={cls.link} to={path}>
+                </Link>
+                <p className={cls.list_title}>Campaign Management</p>
+                {navbarConfig.campaignsManagement.map(({path, title, icon}) => (
+                    <Link className={cls.link} to={path}>
+                        <ListItemButton
+                            selected={selectedPath === path}
+                            onClick={(event) => onListItemClick(event, path)}
+                            key={path}>
+                            <ListItemIcon className={cls.icon}>
+                                {icon}
+                            </ListItemIcon>
                             <ListItemText primaryTypographyProps={
                                 {
                                     fontSize: '1rem',
                                     lineHeight: '1.57rem',
                                     fontWeight: 400,
-                                    color: selectedPath  === path
+                                    color: selectedPath === path
                                         ? "#1677FF"
-                                        :`rgb(38, 38, 38)`
+                                        : `rgb(38, 38, 38)`
                                 }
-                            }  primary={title}/>
-                        </Link>
-                    </ListItemButton>
+                            } primary={title}/>
+                        </ListItemButton>
+                    </Link>
+                ))}
+                <p className={cls.list_title}>Settings</p>
+                {navbarConfig.settings.map(({path, title, icon}) => (
+                    <Link className={cls.link} to={path}>
+                        <ListItemButton
+                            selected={selectedPath === path}
+                            onClick={(event) => onListItemClick(event, path)}
+                            key={path}>
+                            <ListItemIcon className={cls.icon}>
+                                {icon}
+                            </ListItemIcon>
+                            <ListItemText primaryTypographyProps={
+                                {
+                                    fontSize: '1rem',
+                                    lineHeight: '1.57rem',
+                                    fontWeight: 400,
+                                    color: selectedPath === path
+                                        ? "#1677FF"
+                                        : `rgb(38, 38, 38)`
+                                }
+                            } primary={title}/>
+                        </ListItemButton>
+                    </Link>
                 ))}
             </List>
         </div>

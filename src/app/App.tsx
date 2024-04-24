@@ -1,14 +1,15 @@
 import React from 'react';
 import './styles/index.scss';
-import {classNames} from "shared/lib/classNames";
-import {AppRouter} from "app/providers/Router";
-import {MainLayout} from "app/ui";
+import {MainLayout} from "app/layouts";
+import {IntlProvider} from "react-intl";
 
 const App = () => {
     return (
-        <div className={classNames('app')}>
-            <MainLayout/>
-        </div>
+        <IntlProvider locale="en">
+            <div className="app">
+                <MainLayout/>
+            </div>
+        </IntlProvider>
     );
 };
 

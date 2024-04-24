@@ -13,34 +13,14 @@
   justify-content: space-between;
 }
 
-.user_menu {
-  display: flex;
-  align-items: center;
-
-  &__avatar {
-    margin-right: 15px;
-    width: 42px !important;
-    height: 42px !important;
-  }
-  &__text {
-    font: var(--font-m);
+.site_name {
+    font: var(--font-l);
     color: #1876D2;
-  }
 }
 
-.menu_item {
-  &__link {
-    color: inherit;
-    text-decoration: none;
-    display: flex !important;
-  }
-
-  &__text {
-    font: var(--font-m);
-    margin-left: 10px;
-  }
-
-  &__logout {
-    display: flex;
-  }
+.menus_section {
+  width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
