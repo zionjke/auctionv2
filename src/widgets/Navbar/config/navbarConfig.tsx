@@ -1,12 +1,13 @@
 import {RoutePath, Routes} from "shared/config/routeConfig";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import PersonIcon from "@mui/icons-material/Person";
-import LanguageIcon from "@mui/icons-material/Language";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
-import LinkIcon from "@mui/icons-material/Link";
-import ManageSearchIcon from "@mui/icons-material/ManageSearch";
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
+import ContactEmergencyOutlinedIcon from '@mui/icons-material/ContactEmergencyOutlined';
+import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
+import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
+import TipsAndUpdatesOutlinedIcon from '@mui/icons-material/TipsAndUpdatesOutlined';
 
 interface INavbarItem {
     title: string;
@@ -16,20 +17,24 @@ interface INavbarItem {
 export interface INavbarConfig {
     campaignsManagement: INavbarItem[];
     settings: INavbarItem[];
+    externalStatistics: INavbarItem[];
 }
 
 
 export const navbarConfig: INavbarConfig = {
     campaignsManagement: [
-        {title: 'Create new campaign', path: RoutePath[Routes.CAMPAIGN_CREATE], icon: <AddCircleOutlineIcon fontSize="small"  color="primary"/>},
-        {title: 'All campaigns', path: RoutePath[Routes.ALL_CAMPAIGNS], icon: <FormatListBulletedIcon fontSize="small" color="primary"/>},
+        {title: 'Create new campaign', path: RoutePath[Routes.CAMPAIGN_CREATE], icon: <AddCircleOutlineOutlinedIcon/>},
+        {title: 'All campaigns', path: RoutePath[Routes.ALL_CAMPAIGNS], icon: <FormatListBulletedOutlinedIcon/>},
     ],
     settings: [
-        {title: 'Account', path: RoutePath[Routes.EDIT_USER], icon: <PersonIcon fontSize="small" color="primary"/>},
-        {title: 'Sites', path: RoutePath[Routes.USER_SITES], icon: <LanguageIcon fontSize="small" color="primary"/>},
-        {title: 'Support', path: RoutePath[Routes.FEEDBACK], icon: <SupportAgentIcon fontSize="small" color="primary"/>},
-        {title: 'Contacts', path: RoutePath[Routes.CONTACTS], icon: <ContactEmergencyIcon fontSize="small" color="primary"/>},
-        {title: 'External statistic', path: RoutePath[Routes.EXTERNAL_STATISTICS], icon: <LinkIcon fontSize="small" color="primary"/>},
-        {title: 'External statistic history', path: RoutePath[Routes.EXTERNAL_STATISTICS_HISTORY], icon: <ManageSearchIcon fontSize="small" color="primary"/>},
+        {title: 'Account', path: RoutePath[Routes.EDIT_USER], icon: <PersonOutlineOutlinedIcon/>},
+        {title: 'Sites', path: RoutePath[Routes.USER_SITES], icon: <LanguageOutlinedIcon />},
+        {title: 'Support', path: RoutePath[Routes.FEEDBACK], icon: <SupportAgentOutlinedIcon />},
+        {title: 'Contacts', path: RoutePath[Routes.CONTACTS], icon: <ContactEmergencyOutlinedIcon />},
+    ],
+    externalStatistics: [
+        {title: 'Statistic', path: RoutePath[Routes.EXTERNAL_STATISTICS], icon: <LinkOutlinedIcon />},
+        {title: 'History', path: RoutePath[Routes.EXTERNAL_HISTORY], icon: <ManageSearchOutlinedIcon />},
+        {title: 'Coefficient', path: RoutePath[Routes.EXTERNAL_COEFFICIENT], icon: <TipsAndUpdatesOutlinedIcon />},
     ]
 }

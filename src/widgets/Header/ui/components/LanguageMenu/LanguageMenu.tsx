@@ -1,31 +1,26 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {classNames} from "shared/lib/classNames";
 import cls from './LanguageMenu.module.scss'
 import {IconButton, Menu, MenuItem} from "@mui/material";
 import TranslateIcon from "@mui/icons-material/Translate";
+import {useMenu} from "shared/hooks/useMenu";
 
 interface LanguageMenuProps {
     className?: string;
 }
-export const LanguageMenu:FC<LanguageMenuProps> = ({className}) => {
 
-    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+export const LanguageMenu: FC<LanguageMenuProps> = ({className}) => {
+    const {anchorEl, handleOpenMenu, handleCloseMenu} = useMenu();
 
     return (
         <div className={classNames(cls.language_menu, {}, [className])}>
-            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                <TranslateIcon color={"primary"}/>
+            <IconButton className={cls.icon_button} aria-label="language" size="small" onClick={handleOpenMenu}>
+                <TranslateIcon fontSize="small" sx={{color: "black"}}/>
             </IconButton>
             <Menu
                 sx={{mt: '45px'}}
                 id="menu-appbar"
-                anchorEl={anchorElUser}
+                anchorEl={anchorEl}
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',
@@ -35,17 +30,19 @@ export const LanguageMenu:FC<LanguageMenuProps> = ({className}) => {
                     vertical: 'top',
                     horizontal: 'right',
                 }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
+                open={Boolean(anchorEl)}
+                onClose={handleCloseMenu}
             >
-                <MenuItem onClick={handleCloseUserMenu}>
-                    <div className={cls.menu_item__logout}>
-                        EN
+                <MenuItem onClick={handleCloseMenu}>
+                    <div className={cls.language_menu_item}>
+                        <p className={cls.language_menu_item_text}>English</p>
+                        <span className={cls.language_menu_item_subtext}>(UK)</span>
                     </div>
                 </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
-                    <div className={cls.menu_item__logout}>
-                        DE
+                <MenuItem onClick={handleCloseMenu}>
+                    <div className={cls.language_menu_item}>
+                        <p className={cls.language_menu_item_text}>German</p>
+                        <span className={cls.language_menu_item_subtext}>(DE)</span>
                     </div>
                 </MenuItem>
             </Menu>

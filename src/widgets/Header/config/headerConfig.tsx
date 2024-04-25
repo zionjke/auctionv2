@@ -1,10 +1,9 @@
 import {RoutePath, Routes} from "shared/config/routeConfig";
-import PersonIcon from "@mui/icons-material/Person";
-import LanguageIcon from "@mui/icons-material/Language";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import React from "react";
+import ContactEmergencyOutlinedIcon from "@mui/icons-material/ContactEmergencyOutlined";
+import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
+import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 export interface IHeaderMenuItem {
     title: string;
@@ -14,9 +13,8 @@ export interface IHeaderMenuItem {
 
 
 export const headerConfig: IHeaderMenuItem[] = [
-    {title: 'Dashboard', path: RoutePath[Routes.STATISTIC], icon: <QueryStatsIcon fontSize="small" color="primary"/>},
-    {title: 'Account', path: RoutePath[Routes.EDIT_USER], icon: <PersonIcon fontSize="small" color="primary"/>},
-    {title: 'Sites', path: RoutePath[Routes.USER_SITES], icon: <LanguageIcon fontSize="small" color="primary"/>},
-    {title: 'Support', path: RoutePath[Routes.FEEDBACK], icon: <SupportAgentIcon fontSize="small" color="primary"/>},
-    {title: 'Contacts', path: RoutePath[Routes.CONTACTS], icon: <ContactEmergencyIcon fontSize="small" color="primary"/>},
+    {title: 'Account', path: RoutePath[Routes.EDIT_USER], icon: <PersonOutlineOutlinedIcon fontSize="small" color="primary"/>},
+    {title: 'Sites', path: RoutePath[Routes.USER_SITES], icon: <LanguageOutlinedIcon fontSize="small" color="primary"/>},
+    {title: 'Support', path: RoutePath[Routes.FEEDBACK], icon: <SupportAgentOutlinedIcon fontSize="small" color="primary"/>},
+    {title: 'Contacts', path: RoutePath[Routes.CONTACTS], icon: <ContactEmergencyOutlinedIcon fontSize="small" color="primary"/>},
 ]

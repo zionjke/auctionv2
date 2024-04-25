@@ -10,17 +10,5 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.site_name {
-    font: var(--font-l);
-    color: #1876D2;
-}
-
-.menus_section {
-  width: 300px;
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
 }

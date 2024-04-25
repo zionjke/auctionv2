@@ -12,11 +12,8 @@ export const HeaderComponent: FC<HeaderComponentProps> = ({}) => {
     return (
         <header className={classNames(cls.wrapper, {}, [])}>
             <div className={cls.container}>
-                <p className={cls.site_name}>xing.de</p>
-                <div className={cls.menus_section}>
-                    <LanguageMenu/>
-                    <UserMenu/>
-                </div>
+                <LanguageMenu/>
+                <UserMenu/>
             </div>
         </header>
     );

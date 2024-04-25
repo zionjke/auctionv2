@@ -1,20 +1,26 @@
 .footer {
   padding: 15px 30px;
-  border-top: var(--border)
+  background: #FAFAFB;
 }
 
 .top__container {
   display: flex;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(24, 118, 210, 0.14);
+  justify-content: space-between;
   align-items: center;
 
   &_links {
     &_item {
-      font-size: 12px;
+      font-weight: 400;
+      font-size: 0.75rem;
+      line-height: 1.66;
       text-decoration: none;
-      color: #1876D2;
+      color: rgb(38, 38, 38);
       margin-left: 45px;
+
+      &:hover {
+        text-decoration: underline;
+      }
 
       &:first-child {
         margin-left: 0;
@@ -25,13 +31,14 @@
 
 .bottom__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-top: 12px;
 
   &_text {
-    color: #9E9E9E;
-    font-size: 12px;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.66;
   }
 
   &_links {

@@ -12,14 +12,15 @@ export enum Routes {
     EDIT_USER = 'editUser',
     USER_SITES = 'userSites',
     EXTERNAL_STATISTICS = 'externalStatistics',
-    EXTERNAL_STATISTICS_HISTORY = 'externalStatisticsHistory',
+    EXTERNAL_COEFFICIENT = 'externalCoefficient',
+    EXTERNAL_HISTORY = 'externalStatisticsHistory',
     LOGIN = 'login',
     REGISTER = 'register',
 }
 
 export const RoutePath: Record<Routes, string> = {
     [Routes.STATISTIC]: '/',
-    [Routes.OVERALL_STATISTICS]: '/overall-statistics',
+    [Routes.OVERALL_STATISTICS]: 'dashboard/overall-statistics',
     [Routes.CONTACTS]: '/contacts',
     [Routes.FEEDBACK]: '/feedback',
     [Routes.CAMPAIGN_CREATE]: '/campaign/create',
@@ -27,8 +28,9 @@ export const RoutePath: Record<Routes, string> = {
     [Routes.CAMPAIGN_EDIT]: '/campaign/edit/:id',
     [Routes.EDIT_USER]: '/user/edit/',
     [Routes.USER_SITES]: '/user/sites',
-    [Routes.EXTERNAL_STATISTICS]: '/external',
-    [Routes.EXTERNAL_STATISTICS_HISTORY]: '/external/history',
+    [Routes.EXTERNAL_STATISTICS]: '/external/statistics',
+    [Routes.EXTERNAL_COEFFICIENT]: '/external/coefficient',
+    [Routes.EXTERNAL_HISTORY]: '/external/history',
     [Routes.LOGIN]: '/login',
     [Routes.REGISTER]: '/register',
 }
@@ -74,8 +76,12 @@ export const routeConfig: Record<Routes, RouteProps> = {
         path: RoutePath[Routes.EXTERNAL_STATISTICS],
         element: null,
     },
-    [Routes.EXTERNAL_STATISTICS_HISTORY]: {
-        path: RoutePath[Routes.EXTERNAL_STATISTICS_HISTORY],
+    [Routes.EXTERNAL_COEFFICIENT]: {
+        path: RoutePath[Routes.EXTERNAL_COEFFICIENT],
+        element: null,
+    },
+    [Routes.EXTERNAL_HISTORY]: {
+        path: RoutePath[Routes.EXTERNAL_HISTORY],
         element: null,
     },
     [Routes.LOGIN]: {

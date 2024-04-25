@@ -16,9 +16,9 @@ const MainLayout:FC<MainLayoutProps> = ({className}) => {
                <NavBar/>
                <div className={cls.content}>
                    <Header/>
-                   <div className={cls.main}>
+                   <main className={cls.main}>
                           <AppRouter/>
-                   </div>
+                   </main>
                    <Footer/>
                </div>
            </div>
