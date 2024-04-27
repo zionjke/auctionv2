@@ -21,7 +21,7 @@ export default [
     ...compat.extends('standard-with-typescript'),
     pluginReactConfig,
     {
-        files: ['src/{**/*.tsx,**/*.ts}'],
+        files: ['**/*.tsx', '**/*.ts'],
         rules: {
             semi: "error",
             'no-unused-vars': 'warn',
