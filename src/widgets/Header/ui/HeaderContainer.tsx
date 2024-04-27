@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
-import {HeaderComponent} from "./HeaderComponent";
+import React, { type FC } from 'react'
+import { HeaderComponent } from './HeaderComponent'
 
 interface HeaderProps {
-    className?: string;
+  className?: string
 }
-export const HeaderContainer:FC<HeaderProps> = ({className}) => {
-    return (
+export const HeaderContainer: FC<HeaderProps> = ({ className }) => {
+  return (
        <HeaderComponent/>
-    );
-};
+  )
+}

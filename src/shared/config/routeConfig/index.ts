@@ -1,7 +1,7 @@
-import {routeConfig, Routes, RoutePath} from "./routeConfig";
+import { routeConfig, Routes, RoutePath } from './routeConfig'
 
 export {
-    routeConfig,
-    Routes,
-    RoutePath,
-};
+  routeConfig,
+  Routes,
+  RoutePath
+}

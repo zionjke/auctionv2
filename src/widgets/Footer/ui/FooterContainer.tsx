@@ -1,14 +1,14 @@
-import React, {FC} from 'react';
-import {FooterComponent} from "./FooterComponent";
-import {footerConfig} from "../config/footerConfig";
+import React, { type FC } from 'react'
+import { footerConfig } from '../config/footerConfig'
+import { FooterComponent } from './FooterComponent'
 
 interface FooterContainerProps {
-    className?: string;
+  className?: string
 }
-export const FooterContainer:FC<FooterContainerProps> = ({className}) => {
-    const currentYear = new Date().getFullYear();
+export const FooterContainer: FC<FooterContainerProps> = ({ className }) => {
+  const currentYear = new Date().getFullYear()
 
-    return (
+  return (
        <FooterComponent footerConfig={footerConfig} currentYear={currentYear}/>
-    );
-};
+  )
+}

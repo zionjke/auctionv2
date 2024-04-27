@@ -1,34 +1,34 @@
-import React, {FC} from 'react';
-import {classNames} from "shared/lib/classNames";
+import GTranslateOutlinedIcon from '@mui/icons-material/GTranslateOutlined'
+import { IconButton, Menu, MenuItem } from '@mui/material'
+import React, { type FC } from 'react'
+import { useMenu } from 'shared/hooks/useMenu'
+import { classNames } from 'shared/lib/classNames'
 import cls from './LanguageMenu.module.scss'
-import {IconButton, Menu, MenuItem} from "@mui/material";
-import TranslateIcon from "@mui/icons-material/Translate";
-import {useMenu} from "shared/hooks/useMenu";
 
 interface LanguageMenuProps {
-    className?: string;
+  className?: string
 }
 
-export const LanguageMenu: FC<LanguageMenuProps> = ({className}) => {
-    const {anchorEl, handleOpenMenu, handleCloseMenu} = useMenu();
+export const LanguageMenu: FC<LanguageMenuProps> = ({ className }) => {
+  const { anchorEl, handleOpenMenu, handleCloseMenu } = useMenu()
 
-    return (
+  return (
         <div className={classNames(cls.language_menu, {}, [className])}>
             <IconButton className={cls.icon_button} aria-label="language" size="small" onClick={handleOpenMenu}>
-                <TranslateIcon fontSize="small" sx={{color: "black"}}/>
+                <GTranslateOutlinedIcon fontSize="small"/>
             </IconButton>
             <Menu
-                sx={{mt: '45px'}}
+                sx={{ mt: '45px' }}
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right'
                 }}
                 keepMounted
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right'
                 }}
                 open={Boolean(anchorEl)}
                 onClose={handleCloseMenu}
@@ -47,5 +47,5 @@ export const LanguageMenu: FC<LanguageMenuProps> = ({className}) => {
                 </MenuItem>
             </Menu>
         </div>
-    );
-};
+  )
+}

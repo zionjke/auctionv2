@@ -1,3 +1,6 @@
+@import "app/styles/variables/mixins";
+@import "app/styles/variables/fonts";
+
 .wrapper {
 
 }
@@ -13,7 +16,7 @@
     width: 300px !important;
 
     li {
-      padding: 15px;
+      padding: 10px;
     }
   }
 }
@@ -27,7 +30,8 @@
   }
 
   &__text {
-    font: var(--font-m);
+    @include font($font-l);
+    color: var(--primary-color);
     margin-left: 15px;
   }
 }
@@ -52,16 +56,13 @@
       margin-left: 10px;
 
       &_name {
-        font-weight: 400;
-        font-size: 0.875rem;
-        line-height: 1.57;
+        @include font($font-l);
+        color: var(--primary-color);
       }
 
       &_email {
-        font-size: 0.83rem;
-        line-height: 1.66;
-        font-weight: 400;
-        color: rgb(140, 140, 140);
+        @include font($font-s);
+        color: var(--secondary-color);
       }
     }
   }
@@ -69,14 +70,15 @@
 
 .icon_button {
   margin-right: 10px !important;
-  height: 40px !important;
-  width: 40px !important;
-  border-radius: 0 !important;
+
+  &_logout {
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 0 !important;
+  }
 
   &_text {
-    color: #262626;
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.57;
+    @include font($font-l-bold);
+    color: var(--primary-color);
   }
 }

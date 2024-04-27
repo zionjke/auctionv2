@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
-import {classNames} from "shared/lib/classNames";
+import React, { type FC } from 'react'
+import { classNames } from 'shared/lib/classNames'
 import cls from './MainPage.module.scss'
 
 interface MainPageProps {
-    className?: string;
+  className?: string
 }
-const MainPage:FC<MainPageProps> = ({className}) => {
-    return (
+const MainPage: FC<MainPageProps> = ({ className }) => {
+  return (
        <div className={classNames(cls.wrapper, {}, [])}>
            Main
        </div>
-    );
-};
+  )
+}
 
-export default MainPage;
+export default MainPage

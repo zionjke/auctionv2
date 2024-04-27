@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
-import {classNames} from "shared/lib/classNames";
+import { AppRouter } from 'app/providers/Router'
+import React, { type FC } from 'react'
+import { classNames } from 'shared/lib/classNames'
+import { Footer } from 'widgets/Footer'
+import { Header } from 'widgets/Header'
+import { NavBar } from 'widgets/Navbar'
 import cls from './MainLayout.module.scss'
-import {Header} from "widgets/Header";
-import {Footer} from "widgets/Footer";
-import {NavBar} from "widgets/Navbar";
-import {AppRouter} from "app/providers/Router";
 
 interface MainLayoutProps {
-    className?: string;
+  className?: string
 }
-const MainLayout:FC<MainLayoutProps> = ({className}) => {
-    return (
+const MainLayout: FC<MainLayoutProps> = ({ className }) => {
+  return (
        <div className={classNames(cls.wrapper, {}, [])}>
            <div className={cls.container}>
                <NavBar/>
@@ -23,7 +23,7 @@ const MainLayout:FC<MainLayoutProps> = ({className}) => {
                </div>
            </div>
        </div>
-    );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

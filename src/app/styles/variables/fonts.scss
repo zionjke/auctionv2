@@ -1,0 +1,27 @@
+$font-l: (
+        font-weight: 400,
+        font-size: 0.875rem,
+        line-height: 1.57,
+        font-family: var(--font-family-main)
+);
+
+$font-l-bold: (
+        font-size: 0.875rem,
+        font-weight: 600,
+        line-height: 1.57,
+        font-family: var(--font-family-main)
+);
+
+$font-m: (
+        font-size: 0.75rem,
+        font-weight: 500,
+        line-height: 1.66,
+        font-family: var(--font-family-main)
+);
+
+$font-s: (
+        font-weight: 400,
+        font-size: 0.75rem,
+        line-height: 1.66,
+        font-family: var(--font-family-main)
+);

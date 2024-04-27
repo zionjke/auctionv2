@@ -1,3 +1,3 @@
-import {NavbarContainer as NavBar} from "widgets/Navbar/ui/NavbarContainer";
+import { NavbarContainer as NavBar } from 'widgets/Navbar/ui/NavbarContainer'
 
-export {NavBar}
+export { NavBar }

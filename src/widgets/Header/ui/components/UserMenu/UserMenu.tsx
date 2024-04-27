@@ -1,41 +1,41 @@
-import React, {FC} from 'react';
-import {classNames} from "shared/lib/classNames";
+import LogoutIcon from '@mui/icons-material/Logout'
+import { Avatar, IconButton, Menu, MenuItem } from '@mui/material'
+import React, { type FC } from 'react'
+import { Link } from 'react-router-dom'
+import AvatarImg from 'shared/assets/images/avatar.png'
+import { useMenu } from 'shared/hooks/useMenu'
+import { classNames } from 'shared/lib/classNames'
+import { headerConfig } from 'widgets/Header/config/headerConfig'
 import cls from './UserMenu.module.scss'
-import {Avatar, IconButton, Menu, MenuItem} from "@mui/material";
-import AvatarImg from "shared/assets/images/avatar.png";
-import {Link} from "react-router-dom";
-import LogoutIcon from "@mui/icons-material/Logout";
-import {headerConfig} from "widgets/Header/config/headerConfig";
-import {useMenu} from "shared/hooks/useMenu";
 
 interface UserMenuProps {
-    className?: string;
+  className?: string
 }
 
-export const UserMenu: FC<UserMenuProps> = ({className}) => {
-    const {anchorEl, handleOpenMenu, handleCloseMenu} = useMenu();
+export const UserMenu: FC<UserMenuProps> = ({ className }) => {
+  const { anchorEl, handleOpenMenu, handleCloseMenu } = useMenu()
 
-    return (
+  return (
         <div className={classNames(cls.wrapper, {}, [className])}>
             <div className={cls.toggle_block}>
-                <IconButton className={cls.icon_button} onClick={handleOpenMenu} sx={{p: 0}}>
+                <IconButton className={cls.icon_button} onClick={handleOpenMenu} sx={{ p: 0 }}>
                     <Avatar alt="Avatar" src={AvatarImg}/>
                 </IconButton>
-                <p className={cls.icon_button_text}>Xing.de</p>
+                <p className={cls.icon_button_text}>xing.de</p>
             </div>
             <Menu
                 className={cls.menu}
-                sx={{mt: '45px'}}
+                sx={{ mt: '45px' }}
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right'
                 }}
                 keepMounted
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right'
                 }}
                 open={Boolean(anchorEl)}
                 onClose={handleCloseMenu}
@@ -49,12 +49,12 @@ export const UserMenu: FC<UserMenuProps> = ({className}) => {
                         </div>
                     </div>
                     <div>
-                        <IconButton className={cls.icon_button} sx={{p: 0}}>
-                            <LogoutIcon sx={{color: "black"}}/>
+                        <IconButton className={cls.icon_button_logout} sx={{ p: 0 }}>
+                            <LogoutIcon sx={{ color: 'black' }}/>
                         </IconButton>
                     </div>
                 </div>
-                {headerConfig.map(({title, path, icon}) => (
+                {headerConfig.map(({ title, path, icon }) => (
                     <MenuItem key={path} onClick={handleCloseMenu}>
                         <Link className={cls.menu_item__link} to={path}>
                             {icon}
@@ -64,5 +64,5 @@ export const UserMenu: FC<UserMenuProps> = ({className}) => {
                 ))}
             </Menu>
         </div>
-    );
-};
+  )
+}

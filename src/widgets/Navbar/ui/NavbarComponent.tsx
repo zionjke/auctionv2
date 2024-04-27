@@ -1,28 +1,28 @@
-import React, {FC} from 'react';
-import {Link} from "react-router-dom";
-import {RoutePath, Routes} from "shared/config/routeConfig";
-import {INavbarConfig} from "widgets/Navbar/config/navbarConfig";
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined'
+import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined'
+import { ListItemButton, ListItemIcon, ListItemText, List, SvgIcon } from '@mui/material'
+import React, { type FC } from 'react'
+import { Link } from 'react-router-dom'
+import JoobleLogo from 'shared/assets/icons/jooble_default_logo.svg'
+import { RoutePath, Routes } from 'shared/config/routeConfig'
+import { classNames } from 'shared/lib/classNames'
+import { type INavbarConfig } from 'widgets/Navbar/config/navbarConfig'
 import cls from './Navbar.module.scss'
-import {ListItemButton, ListItemIcon, ListItemText, List, SvgIcon} from '@mui/material';
-import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
-import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
-import JoobleLogo from "shared/assets/icons/jooble_default_logo.svg";
-import {classNames} from "shared/lib/classNames";
 
 interface NavbarComponentProps {
-    className?: string;
-    selectedPath: string;
-    onListItemClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, path: string) => void;
-    navbarConfig: INavbarConfig;
+  className?: string
+  selectedPath: string
+  onListItemClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, path: string) => void
+  navbarConfig: INavbarConfig
 }
 
 export const NavbarComponent: FC<NavbarComponentProps> = ({
-                                                              className,
-                                                              selectedPath,
-                                                              onListItemClick,
-                                                              navbarConfig
-                                                          }) => {
-    return (
+  className,
+  selectedPath,
+  onListItemClick,
+  navbarConfig
+}) => {
+  return (
         <div className={cls.container}>
             <div className={cls.logo}>
                 <Link to={RoutePath[Routes.STATISTIC]}>
@@ -36,23 +36,21 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                 <p className={cls.list_title}>Dashboard</p>
                 <Link className={cls.link} to={RoutePath[Routes.STATISTIC]}>
                     <ListItemButton selected={selectedPath === RoutePath[Routes.STATISTIC]}
-                                    onClick={(event) => onListItemClick(event, RoutePath[Routes.STATISTIC])}>
+                                    onClick={(event) => { onListItemClick(event, RoutePath[Routes.STATISTIC]) }}>
                         <ListItemIcon className={cls.icon}>
                             <QueryStatsOutlinedIcon fontSize="small" color={
                                 selectedPath === RoutePath[Routes.STATISTIC]
-                                    ? "primary"
-                                    : "inherit"
+                                  ? 'primary'
+                                  : 'inherit'
                             }/>
                         </ListItemIcon>
                         <ListItemText
+                            className={cls.list_button}
                             primaryTypographyProps={
                                 {
-                                    fontSize: '1rem',
-                                    lineHeight: '1.57rem',
-                                    fontWeight: 400,
-                                    color: selectedPath === RoutePath[Routes.STATISTIC]
-                                        ? "#1677FF"
-                                        : `rgb(38, 38, 38)`
+                                  color: selectedPath === RoutePath[Routes.STATISTIC]
+                                    ? '#1677FF'
+                                    : 'rgb(38, 38, 38)'
                                 }
                             }
                             primary="Campaign Insights"/>
@@ -60,23 +58,21 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                 </Link>
                 <Link className={cls.link} to={RoutePath[Routes.OVERALL_STATISTICS]}>
                     <ListItemButton selected={selectedPath === RoutePath[Routes.OVERALL_STATISTICS]}
-                                    onClick={(event) => onListItemClick(event, RoutePath[Routes.OVERALL_STATISTICS])}>
+                                    onClick={(event) => { onListItemClick(event, RoutePath[Routes.OVERALL_STATISTICS]) }}>
                         <ListItemIcon className={cls.icon}>
                             <DashboardCustomizeOutlinedIcon fontSize="small" color={
                                 selectedPath === RoutePath[Routes.OVERALL_STATISTICS]
-                                    ? "primary"
-                                    : "inherit"
+                                  ? 'primary'
+                                  : 'inherit'
                             }/>
                         </ListItemIcon>
                         <ListItemText
+                            className={cls.list_button}
                             primaryTypographyProps={
                                 {
-                                    fontSize: '1rem',
-                                    lineHeight: '1.57rem',
-                                    fontWeight: 400,
-                                    color: selectedPath === RoutePath[Routes.OVERALL_STATISTICS]
-                                        ? "#1677FF"
-                                        : `rgb(38, 38, 38)`
+                                  color: selectedPath === RoutePath[Routes.OVERALL_STATISTICS]
+                                    ? '#1677FF'
+                                    : 'rgb(38, 38, 38)'
                                 }
                             }
                             primary="Overall Statistic"/>
@@ -86,87 +82,84 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
                     </ListItemButton>
                 </Link>
                 <p className={cls.list_title}>Campaign Management</p>
-                {navbarConfig.campaignsManagement.map(({path, title, icon}) => (
-                    <Link className={cls.link} to={path}>
+                {navbarConfig.campaignsManagement.map(({ path, title, icon }) => (
+                    <Link key={path} className={cls.link} to={path}>
                         <ListItemButton
                             selected={selectedPath === path}
-                            onClick={(event) => onListItemClick(event, path)}
+                            onClick={(event) => { onListItemClick(event, path) }}
                             key={path}>
                             <ListItemIcon className={cls.icon}>
                                 <SvgIcon fontSize="small" color={
                                     selectedPath === path
-                                        ? "primary"
-                                        : "inherit"
+                                      ? 'primary'
+                                      : 'inherit'
                                 } >
                                     {icon}
                                 </SvgIcon>
                             </ListItemIcon>
-                            <ListItemText primaryTypographyProps={
+                            <ListItemText
+                                className={cls.list_button}
+                                primaryTypographyProps={
                                 {
-                                    fontSize: '1rem',
-                                    lineHeight: '1.57rem',
-                                    fontWeight: 400,
-                                    color: selectedPath === path
-                                        ? "#1677FF"
-                                        : `rgb(38, 38, 38)`
+                                  color: selectedPath === path
+                                    ? '#1677FF'
+                                    : 'rgb(38, 38, 38)'
                                 }
                             } primary={title}/>
                         </ListItemButton>
                     </Link>
                 ))}
                 <p className={cls.list_title}>Settings</p>
-                {navbarConfig.settings.map(({path, title, icon}) => (
-                    <Link className={cls.link} to={path}>
+                {navbarConfig.settings.map(({ path, title, icon }) => (
+                    <Link key={path} className={cls.link} to={path}>
                         <ListItemButton
                             selected={selectedPath === path}
-                            onClick={(event) => onListItemClick(event, path)}
+                            onClick={(event) => { onListItemClick(event, path) }}
                             key={path}>
                             <ListItemIcon className={cls.icon}>
                                 <SvgIcon fontSize="small" color={
                                     selectedPath === path
-                                        ? "primary"
-                                        : "inherit"
+                                      ? 'primary'
+                                      : 'inherit'
                                 } >
                                     {icon}
                                 </SvgIcon>
                             </ListItemIcon>
-                            <ListItemText primaryTypographyProps={
+                            <ListItemText
+                                className={cls.list_button}
+                                primaryTypographyProps={
                                 {
-                                    fontSize: '1rem',
-                                    lineHeight: '1.57rem',
-                                    fontWeight: 400,
-                                    color: selectedPath === path
-                                        ? "#1677FF"
-                                        : `rgb(38, 38, 38)`
+                                  color: selectedPath === path
+                                    ? '#1677FF'
+                                    : 'rgb(38, 38, 38)'
                                 }
                             } primary={title}/>
                         </ListItemButton>
                     </Link>
                 ))}
                 <p className={cls.list_title}>External</p>
-                {navbarConfig.externalStatistics.map(({path, title, icon}) => (
-                    <Link className={cls.link} to={path}>
+                {navbarConfig.externalStatistics.map(({ path, title, icon }) => (
+                    <Link key={path} className={cls.link} to={path}>
                         <ListItemButton
                             selected={selectedPath === path}
-                            onClick={(event) => onListItemClick(event, path)}
+                            onClick={(event) => { onListItemClick(event, path) }}
                             key={path}>
                             <ListItemIcon className={cls.icon}>
                                 <SvgIcon fontSize="small" color={
                                     selectedPath === path
-                                        ? "primary"
-                                        : "inherit"
+                                      ? 'primary'
+                                      : 'inherit'
                                 } >
                                     {icon}
                                 </SvgIcon>
                             </ListItemIcon>
-                            <ListItemText primaryTypographyProps={
+                            <ListItemText
+                                className={cls.list_button}
+                                primaryTypographyProps={
                                 {
-                                    fontSize: '1rem',
-                                    lineHeight: '1.57rem',
-                                    fontWeight: 400,
-                                    color: selectedPath === path
-                                        ? "#1677FF"
-                                        : `rgb(38, 38, 38)`
+                                  color: selectedPath === path
+                                    ? '#1677FF'
+                                    : 'rgb(38, 38, 38)'
                                 }
                             } primary={title}/>
                         </ListItemButton>
@@ -175,5 +168,5 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
             </List>
         </div>
 
-    );
-};
+  )
+}
