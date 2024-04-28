@@ -5,13 +5,13 @@ import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined'
 import React from 'react'
 import { RoutePath, Routes } from 'shared/config/routeConfig'
 
-export interface IHeaderMenuItem {
+export interface IUserMenuItem {
   title: string
   path?: string
   icon: JSX.Element
 }
 
-export const headerConfig: IHeaderMenuItem[] = [
+export const userMenuConfig: IUserMenuItem[] = [
   { title: 'Account', path: RoutePath[Routes.EDIT_USER], icon: <PersonOutlineOutlinedIcon fontSize="small" color="primary"/> },
   { title: 'Sites', path: RoutePath[Routes.USER_SITES], icon: <LanguageOutlinedIcon fontSize="small" color="primary"/> },
   { title: 'Support', path: RoutePath[Routes.FEEDBACK], icon: <SupportAgentOutlinedIcon fontSize="small" color="primary"/> },

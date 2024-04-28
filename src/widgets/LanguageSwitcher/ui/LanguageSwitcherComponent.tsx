@@ -1,17 +1,22 @@
 import GTranslateOutlinedIcon from '@mui/icons-material/GTranslateOutlined'
 import { IconButton, Menu, MenuItem } from '@mui/material'
 import React, { type FC } from 'react'
-import { useMenu } from 'shared/hooks/useMenu'
 import { classNames } from 'shared/lib/classNames'
-import cls from './LanguageMenu.module.scss'
+import cls from './LanguageSwitcher.module.scss'
 
 interface LanguageMenuProps {
   className?: string
+  anchorEl: HTMLElement | null
+  handleOpenMenu: (event: React.MouseEvent<HTMLButtonElement>) => void
+  handleCloseMenu: () => void
 }
 
-export const LanguageMenu: FC<LanguageMenuProps> = ({ className }) => {
-  const { anchorEl, handleOpenMenu, handleCloseMenu } = useMenu()
-
+export const LanguageSwitcherComponent: FC<LanguageMenuProps> = ({
+  className,
+  handleCloseMenu,
+  anchorEl,
+  handleOpenMenu
+}) => {
   return (
         <div className={classNames(cls.language_menu, {}, [className])}>
             <IconButton className={cls.icon_button} aria-label="language" size="small" onClick={handleOpenMenu}>

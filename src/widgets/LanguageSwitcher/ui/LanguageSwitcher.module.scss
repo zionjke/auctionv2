@@ -1,9 +1,11 @@
 @import "app/styles/variables/mixins";
 @import "app/styles/variables/fonts";
 
-.language_menu {
-  margin-right: 25px;
+.LanguageSwitcherContainer {
 
+}
+
+.language_menu {
   &_item {
     display: flex;
     align-items: center;

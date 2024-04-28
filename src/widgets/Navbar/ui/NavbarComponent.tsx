@@ -25,7 +25,7 @@ export const NavbarComponent: FC<NavbarComponentProps> = ({
   return (
         <div className={cls.container}>
             <div className={cls.logo}>
-                <Link to={RoutePath[Routes.STATISTIC]}>
+                <Link to={RoutePath[Routes.ROOT]}>
                     <JoobleLogo className={cls.logo_icon}/>
                 </Link>
             </div>

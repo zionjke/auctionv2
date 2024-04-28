@@ -17,6 +17,7 @@ export enum Routes {
   EXTERNAL_HISTORY = 'externalStatisticsHistory',
   LOGIN = 'login',
   REGISTER = 'register',
+  FORGOT_PASSWORD = 'forgotPassword'
 }
 
 export const RoutePath: Record<Routes, string> = {
@@ -34,7 +35,8 @@ export const RoutePath: Record<Routes, string> = {
   [Routes.EXTERNAL_COEFFICIENT]: 'auction/external/coefficient',
   [Routes.EXTERNAL_HISTORY]: 'auction/external/history',
   [Routes.LOGIN]: 'auction/login',
-  [Routes.REGISTER]: 'auction/register'
+  [Routes.REGISTER]: 'auction/register',
+  [Routes.FORGOT_PASSWORD]: 'auction/forgot-password'
 }
 
 export const routeConfig: Record<Routes, RouteProps> = {
@@ -96,6 +98,10 @@ export const routeConfig: Record<Routes, RouteProps> = {
   },
   [Routes.REGISTER]: {
     path: RoutePath[Routes.REGISTER],
+    element: null
+  },
+  [Routes.FORGOT_PASSWORD]: {
+    path: RoutePath[Routes.FORGOT_PASSWORD],
     element: null
   }
 }

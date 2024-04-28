@@ -3,18 +3,25 @@ import { Avatar, IconButton, Menu, MenuItem } from '@mui/material'
 import React, { type FC } from 'react'
 import { Link } from 'react-router-dom'
 import AvatarImg from 'shared/assets/images/avatar.png'
-import { useMenu } from 'shared/hooks/useMenu'
 import { classNames } from 'shared/lib/classNames'
-import { headerConfig } from 'widgets/Header/config/headerConfig'
 import cls from './UserMenu.module.scss'
+import { type IUserMenuItem } from 'shared/config/userMenuConfig'
 
 interface UserMenuProps {
   className?: string
+  anchorEl: HTMLElement | null
+  handleOpenMenu: (event: React.MouseEvent<HTMLButtonElement>) => void
+  handleCloseMenu: () => void
+  userMenuConfig: IUserMenuItem[]
 }
 
-export const UserMenu: FC<UserMenuProps> = ({ className }) => {
-  const { anchorEl, handleOpenMenu, handleCloseMenu } = useMenu()
-
+export const UserMenuComponent: FC<UserMenuProps> = ({
+  className,
+  handleCloseMenu,
+  handleOpenMenu,
+  anchorEl,
+  userMenuConfig
+}) => {
   return (
         <div className={classNames(cls.wrapper, {}, [className])}>
             <div className={cls.toggle_block}>
@@ -54,7 +61,7 @@ export const UserMenu: FC<UserMenuProps> = ({ className }) => {
                         </IconButton>
                     </div>
                 </div>
-                {headerConfig.map(({ title, path, icon }) => (
+                {userMenuConfig.map(({ title, path, icon }) => (
                     <MenuItem key={path} onClick={handleCloseMenu}>
                         <Link className={cls.menu_item__link} to={path}>
                             {icon}
