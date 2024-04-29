@@ -7,7 +7,7 @@ import JoobleLogo from 'shared/assets/icons/jooble_default_logo.svg'
 import { RoutePath, Routes } from 'shared/config/routeConfig'
 import { classNames } from 'shared/lib/classNames'
 import cls from './Navbar.module.scss'
-import {INavbarConfig} from "shared/config/navbarConfig";
+import { type INavbarConfig } from 'shared/config/navbarConfig'
 
 interface NavbarComponentProps {
   className?: string
