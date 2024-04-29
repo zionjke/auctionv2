@@ -21,7 +21,6 @@
   }
 }
 
-
 .menu_item {
   &__link {
     color: inherit;
@@ -31,6 +30,7 @@
 
   &__text {
     @include font($font-l);
+
     color: var(--primary-color);
     margin-left: 15px;
   }
@@ -57,11 +57,13 @@
 
       &_name {
         @include font($font-l);
+
         color: var(--primary-color);
       }
 
       &_email {
         @include font($font-s);
+
         color: var(--secondary-color);
       }
     }
@@ -79,6 +81,7 @@
 
   &_text {
     @include font($font-l-bold);
+
     color: var(--primary-color);
   }
 }

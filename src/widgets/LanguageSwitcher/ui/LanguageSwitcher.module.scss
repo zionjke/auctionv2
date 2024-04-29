@@ -12,12 +12,15 @@
 
     &_text {
       @include font($font-l);
+
       color: var(--primary-color);
     }
 
     &_subtext {
       margin-left: 8px;
+
       @include font($font-s);
+
       color: var(--secondary-color);
     }
   }
@@ -28,7 +31,7 @@
     fill: var(--primary-color);
   }
 
-  height:40px !important;
-  width:40px !important;
+  height: 40px !important;
+  width: 40px !important;
   border-radius: 0 !important;
 }

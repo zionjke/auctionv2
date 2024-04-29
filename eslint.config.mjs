@@ -18,6 +18,7 @@ export default [
                 globals: globals.browser
             }
     },
+
     ...compat.extends('standard-with-typescript'),
     pluginReactConfig,
     {
@@ -35,6 +36,9 @@ export default [
             "react/jsx-uses-react": "off",
             "react/no-deprecated": "off",
             "@typescript-eslint/naming-convention": "off",
+        },
+        globals: {
+            __IS_DEV__: true
         }
     }
 ]

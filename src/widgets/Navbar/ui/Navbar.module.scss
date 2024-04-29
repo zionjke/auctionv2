@@ -43,6 +43,7 @@
 
 .list_title {
   @include font($font-m);
+
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -54,7 +55,6 @@
     @include font($font-l);
   }
 }
-
 
 .icon {
   min-width: 37px !important;
@@ -73,11 +73,12 @@
   border-radius: 4px;
   border: 1px solid;
   color: var(--active-color);
-  background-color: rgb(230, 244, 255);
-  border-color: rgb(105, 177, 255);
+  background-color: rgb(230 244 255);
+  border-color: rgb(105 177 255);
 
   &_text {
     @include font($font-l);
+
     text-overflow: ellipsis;
     padding-left: 8px;
     padding-right: 8px;
