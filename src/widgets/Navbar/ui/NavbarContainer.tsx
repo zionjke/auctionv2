@@ -1,11 +1,12 @@
 import React, { type FC, useState } from 'react'
-import { navbarConfig } from '../config/navbarConfig'
 import { NavbarComponent } from './NavbarComponent'
+import { type INavbarConfig } from 'shared/config/navbarConfig'
 
 interface NavbarContainerProps {
   className?: string
+  navbarConfig: INavbarConfig
 }
-export const NavbarContainer: FC<NavbarContainerProps> = ({ className }) => {
+export const NavbarContainer: FC<NavbarContainerProps> = ({ className, navbarConfig }) => {
   const [selectedPath, setSelectedPath] = useState('')
   const toggleListItemClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
