@@ -1,5 +1,6 @@
 import { MainPage } from 'pages/Main'
-import { type RouteProps, Navigate } from 'react-router-dom'
+import { type RouteProps } from 'react-router-dom'
+import { NotFoundPage } from 'pages/NotFound'
 
 export enum Routes {
   ROOT = 'root',
@@ -17,36 +18,38 @@ export enum Routes {
   EXTERNAL_HISTORY = 'externalStatisticsHistory',
   LOGIN = 'login',
   REGISTER = 'register',
-  FORGOT_PASSWORD = 'forgotPassword'
+  FORGOT_PASSWORD = 'forgotPassword',
+  NOT_FOUND = 'notFound'
 }
 
 export const RoutePath: Record<Routes, string> = {
   [Routes.ROOT]: '/',
-  [Routes.STATISTIC]: 'auction/dashboard/statistic',
-  [Routes.OVERALL_STATISTICS]: 'auction/dashboard/overall-statistics',
-  [Routes.CONTACTS]: 'auction/contacts',
-  [Routes.FEEDBACK]: 'auction/feedback',
-  [Routes.CAMPAIGN_CREATE]: 'auction/campaign/create',
-  [Routes.ALL_CAMPAIGNS]: 'auction/campaigns',
-  [Routes.CAMPAIGN_EDIT]: 'auction/campaign/edit/:id',
-  [Routes.EDIT_USER]: 'auction/user/edit/',
-  [Routes.USER_SITES]: 'auction/user/sites',
-  [Routes.EXTERNAL_STATISTICS]: 'auction/external/statistics',
-  [Routes.EXTERNAL_COEFFICIENT]: 'auction/external/coefficient',
-  [Routes.EXTERNAL_HISTORY]: 'auction/external/history',
-  [Routes.LOGIN]: 'auction/login',
-  [Routes.REGISTER]: 'auction/register',
-  [Routes.FORGOT_PASSWORD]: 'auction/forgot-password'
+  [Routes.STATISTIC]: 'dashboard/statistic',
+  [Routes.OVERALL_STATISTICS]: 'dashboard/overall-statistics',
+  [Routes.CONTACTS]: 'contacts',
+  [Routes.FEEDBACK]: 'feedback',
+  [Routes.CAMPAIGN_CREATE]: 'campaign/create',
+  [Routes.ALL_CAMPAIGNS]: 'campaigns',
+  [Routes.CAMPAIGN_EDIT]: 'campaign/edit/:id',
+  [Routes.EDIT_USER]: 'user/edit/',
+  [Routes.USER_SITES]: 'user/sites',
+  [Routes.EXTERNAL_STATISTICS]: 'external/statistics',
+  [Routes.EXTERNAL_COEFFICIENT]: 'external/coefficient',
+  [Routes.EXTERNAL_HISTORY]: 'external/history',
+  [Routes.LOGIN]: 'login',
+  [Routes.REGISTER]: 'register',
+  [Routes.FORGOT_PASSWORD]: 'forgot-password',
+  [Routes.NOT_FOUND]: '*'
 }
 
 export const routeConfig: Record<Routes, RouteProps> = {
+  [Routes.ROOT]: {
+    path: RoutePath[Routes.ROOT],
+    element: <MainPage/>
+  },
   [Routes.STATISTIC]: {
     path: RoutePath[Routes.STATISTIC],
     element: <MainPage/>
-  },
-  [Routes.ROOT]: {
-    path: RoutePath[Routes.ROOT],
-    element: <Navigate to={RoutePath[Routes.STATISTIC]}/>
   },
   [Routes.OVERALL_STATISTICS]: {
     path: RoutePath[Routes.OVERALL_STATISTICS],
@@ -103,5 +106,9 @@ export const routeConfig: Record<Routes, RouteProps> = {
   [Routes.FORGOT_PASSWORD]: {
     path: RoutePath[Routes.FORGOT_PASSWORD],
     element: null
+  },
+  [Routes.NOT_FOUND]: {
+    path: RoutePath[Routes.NOT_FOUND],
+    element: <NotFoundPage/>
   }
 }

@@ -2,9 +2,10 @@
 @import "app/styles/variables/fonts";
 
 .container {
-  width: 100%;
+  position: sticky;
+  top: 0;
+  width: 260px;
   height: 100vh;
-  max-width: 260px;
   display: flex;
   flex-direction: column;
 }
