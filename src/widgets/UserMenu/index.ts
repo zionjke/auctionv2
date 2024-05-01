@@ -1,3 +1,3 @@
-import { UserMenuContainer as UserMenu } from './ui/UserMenuContainer'
+import { UserMenuContainer as UserMenu } from './ui/UserMenuContainer';
 
-export { UserMenu }
+export { UserMenu };

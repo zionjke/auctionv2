@@ -1,6 +1,6 @@
-import FacebookIcon from '@mui/icons-material/Facebook'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export interface IFooterLink {
   title: string
@@ -18,36 +18,36 @@ export interface IFooterConfig {
 }
 
 export const footerConfig: IFooterConfig = {
-  links: [
-    {
-      title: 'About Jooble',
-      link: '/about'
-    },
-    {
-      title: 'For Job Boards',
-      link: '/job-boards'
-    },
-    {
-      title: 'For Publishers',
-      link: '/publishers'
-    },
-    {
-      title: 'Top Job Searches',
-      link: '/top-job-searches'
-    }
-  ],
-  socialLinks: [
-    {
-      icon: <FacebookIcon fontSize={'small'} color={'primary'}/>,
-      link: 'https://www.facebook.com/jooble'
-    },
-    {
-      icon: <LinkedInIcon fontSize={'small'} color={'primary'}/>,
-      link: 'https://www.linkedin.com/company/jooble'
-    },
-    {
-      icon: <InstagramIcon fontSize={'small'} color={'primary'}/>,
-      link: 'https://www.instagram.com/jooblecom/'
-    }
-  ]
-}
+    links: [
+        {
+            title: 'About Jooble',
+            link: '/about',
+        },
+        {
+            title: 'For Job Boards',
+            link: '/job-boards',
+        },
+        {
+            title: 'For Publishers',
+            link: '/publishers',
+        },
+        {
+            title: 'Top Job Searches',
+            link: '/top-job-searches',
+        },
+    ],
+    socialLinks: [
+        {
+            icon: <FacebookIcon fontSize="small" color="primary" />,
+            link: 'https://www.facebook.com/jooble',
+        },
+        {
+            icon: <LinkedInIcon fontSize="small" color="primary" />,
+            link: 'https://www.linkedin.com/company/jooble',
+        },
+        {
+            icon: <InstagramIcon fontSize="small" color="primary" />,
+            link: 'https://www.instagram.com/jooblecom/',
+        },
+    ],
+};

@@ -1,3 +1,3 @@
-import NotFoundPageContainer from './ui/NotFoundPageContainer'
+import NotFoundPageContainer from './ui/NotFoundPageContainer';
 
-export { NotFoundPageContainer as NotFoundPage }
+export { NotFoundPageContainer as NotFoundPage };

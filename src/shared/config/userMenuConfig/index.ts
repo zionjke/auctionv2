@@ -1,3 +1,3 @@
-import { type IUserMenuItem, userMenuConfig } from './userMenuConfig'
+import { type IUserMenuItem, userMenuConfig } from './userMenuConfig';
 
-export { userMenuConfig, type IUserMenuItem }
+export { userMenuConfig, type IUserMenuItem };
