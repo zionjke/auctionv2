@@ -22,6 +22,7 @@ module.exports = {
         'react-hooks',
     ],
     rules: {
+        'no-console': 'warn',
         'react/jsx-indent': [2, 4],
         // error, number of space
         'react/jsx-indent-props': [2, 4],
