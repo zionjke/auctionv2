@@ -18,6 +18,7 @@ export default {
     testEnvironment: 'jsdom',
     moduleDirectories: [
         'node_modules',
+        'src',
     ],
     coveragePathIgnorePatterns: [
         '/node_modules/',
@@ -34,6 +35,7 @@ export default {
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    // setupFilesAfterEnv: ['<rootDir>config/jest/jest.config.ts'],
 
     // setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     //

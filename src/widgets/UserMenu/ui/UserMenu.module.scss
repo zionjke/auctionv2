@@ -77,6 +77,10 @@
     height: 40px !important;
     width: 40px !important;
     border-radius: 0 !important;
+
+    &:hover {
+      border-radius: 10% !important;
+    }
   }
 
   &_text {
