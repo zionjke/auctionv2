@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { classNames } from 'shared/lib/classNames';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { UserMenu } from 'widgets/UserMenu';
+import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher';
+import { UserMenu } from 'shared/ui/UserMenu';
 import { userMenuConfig } from 'shared/config/userMenuConfig';
 import cls from './Header.module.scss';
 
