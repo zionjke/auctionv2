@@ -1,0 +1,85 @@
+import React, { FC } from 'react';
+import * as Yup from 'yup';
+import { classNames } from 'shared/lib/classNames';
+import { useFormik } from 'formik';
+import { Link } from 'react-router-dom';
+import {
+    Button, Checkbox, FormControlLabel, TextField,
+} from '@mui/material';
+import cls from './LoginForm.module.scss';
+
+interface LoginFormComponentProps {
+    className?: string;
+    initialValues?: Record<string, any>;
+    validationSchema?: Yup.ObjectSchema<any>;
+    handleSubmit: (values: Record<string, any>) => Promise<void>;
+}
+const LoginFormComponent:FC<LoginFormComponentProps> = ({
+    className, initialValues, validationSchema, handleSubmit,
+}) => {
+    const formik = useFormik({
+        initialValues,
+        validationSchema,
+        onSubmit: async (values) => {
+            console.log(values);
+            await handleSubmit(values);
+        },
+    });
+    return (
+        <form onSubmit={formik.handleSubmit} className={cls.form}>
+            <div className={cls.formHeader}>
+                <h3 className={cls.formHeader_title}>Login</h3>
+                <Link className={cls.formHeader_link} to="/">Dont have an account?</Link>
+            </div>
+            <div className={cls.field}>
+                <TextField
+                    required
+                    id="email"
+                    name="email"
+                    label="Email"
+                    fullWidth
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                />
+            </div>
+            <div className={cls.field}>
+                <TextField
+                    required
+                    id="password"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                    fullWidth
+                />
+            </div>
+            <div className={cls.formBottom}>
+                <FormControlLabel
+                    control={(
+                        <Checkbox
+                            id="rememberMe"
+                            name="rememberMe"
+                            onChange={formik.handleChange}
+                            checked={formik.values.rememberMe}
+                        />
+                    )}
+                    label="Keep me sign in"
+                />
+                <Link className={cls.formHeader_link} to="/">Forgot Password?</Link>
+            </div>
+            <Button
+                type="submit"
+                className={cls.formButton}
+                size="large"
+                fullWidth
+                variant="contained"
+            >
+                Login
+            </Button>
+        </form>
+    );
+};
+
+export default LoginFormComponent;

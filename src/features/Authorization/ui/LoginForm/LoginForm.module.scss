@@ -1,0 +1,45 @@
+@import "app/styles/variables/mixins";
+@import "app/styles/variables/fonts";
+
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.33;
+  }
+
+  &_link {
+    text-decoration: none;
+
+    @include font($font-l);
+  }
+}
+
+.field {
+  margin-top: 25px;
+}
+
+.formBottom {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formButton {
+  margin-top: 25px !important;
+  line-height: 1.75 !important;
+  &::after { box-shadow: rgb(22 119 255 / 90%) 0 0 5px 5px !important; }
+}

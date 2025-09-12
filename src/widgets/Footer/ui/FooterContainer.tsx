@@ -9,6 +9,10 @@ export const FooterContainer: FC<FooterContainerProps> = ({ className }) => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <FooterComponent footerConfig={footerConfig} currentYear={currentYear} />
+        <FooterComponent
+            footerConfig={footerConfig}
+            currentYear={currentYear}
+            className={className}
+        />
     );
 };
