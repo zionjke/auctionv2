@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 import {
     Button, Checkbox, FormControlLabel, TextField,
 } from '@mui/material';
+import { AuthData } from 'features/Authorization/model/types/loginSchema';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormComponentProps {
     className?: string;
-    initialValues?: Record<string, any>;
+    initialValues?: AuthData;
     validationSchema?: Yup.ObjectSchema<any>;
-    handleSubmit: (values: Record<string, any>) => Promise<void>;
+    handleSubmit: (values: AuthData) => Promise<void>;
 }
 const LoginFormComponent:FC<LoginFormComponentProps> = ({
     className, initialValues, validationSchema, handleSubmit,
@@ -21,7 +22,6 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
         initialValues,
         validationSchema,
         onSubmit: async (values) => {
-            console.log(values);
             await handleSubmit(values);
         },
     });

@@ -41,7 +41,7 @@ module.exports = {
         'import/extensions': 'off',
         'max-len': ['warn', {
             ignoreComments: true,
-            code: 100,
+            code: 230,
         }],
         'react/react-in-jsx-scope': 'off',
         'no-undef': 'off',
@@ -54,6 +54,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'consistent-return': 'off',
     },
     globals: {
         __IS_DEV__: true,

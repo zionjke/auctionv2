@@ -8,8 +8,12 @@ export interface User {
     userId: number,
     isAuthenticated: boolean,
     role: UserRole,
+    message: string;
 }
 
 export interface UserSchema {
     authData?: User;
+    isLoading: boolean;
+    error?: string;
+    _inited: boolean; // Флаг завершения инициализации
 }
