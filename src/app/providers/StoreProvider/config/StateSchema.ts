@@ -5,3 +5,5 @@ export interface StateSchema {
     user: UserSchema,
     login: LoginSchema
 }
+
+export type { AppDispatch, RootState } from './store';

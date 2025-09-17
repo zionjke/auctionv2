@@ -47,8 +47,7 @@ export const loginBySecretKeyService = createAsyncThunk<User, string>(
 
             return user;
         } catch (e) {
-            console.error('❌ LoginBySecretKey: Error:', e);
-            return thunkAPI.rejectWithValue(e);
+            return thunkAPI.rejectWithValue(e.response.data.message);
         }
     },
 );

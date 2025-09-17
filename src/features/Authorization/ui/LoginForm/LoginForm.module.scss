@@ -43,3 +43,13 @@
   line-height: 1.75 !important;
   &::after { box-shadow: rgb(22 119 255 / 90%) 0 0 5px 5px !important; }
 }
+
+.error {
+  margin-top: 15px;
+
+  @include font($font-m);
+
+  &_text {
+    color: red;
+  }
+}

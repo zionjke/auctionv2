@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import * as Yup from 'yup';
-import { classNames } from 'shared/lib/classNames';
 import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
 import {
@@ -11,12 +10,14 @@ import cls from './LoginForm.module.scss';
 
 interface LoginFormComponentProps {
     className?: string;
+    loginErrorMessage?: string;
     initialValues?: AuthData;
     validationSchema?: Yup.ObjectSchema<any>;
     handleSubmit: (values: AuthData) => Promise<void>;
+    onFieldChange?: () => void;
 }
 const LoginFormComponent:FC<LoginFormComponentProps> = ({
-    className, initialValues, validationSchema, handleSubmit,
+    className, initialValues, validationSchema, handleSubmit, loginErrorMessage, onFieldChange,
 }) => {
     const formik = useFormik({
         initialValues,
@@ -24,7 +25,10 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
         onSubmit: async (values) => {
             await handleSubmit(values);
         },
+        validateOnChange: true,
+        validateOnBlur: true,
     });
+
     return (
         <form onSubmit={formik.handleSubmit} className={cls.form}>
             <div className={cls.formHeader}>
@@ -39,6 +43,9 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
                     label="Email"
                     fullWidth
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
                     value={formik.values.email}
                 />
             </div>
@@ -51,9 +58,17 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
                     type="password"
                     autoComplete="current-password"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.password && Boolean(formik.errors.password)}
+                    helperText={formik.touched.password && formik.errors.password}
                     value={formik.values.password}
                     fullWidth
                 />
+            </div>
+            <div className={cls.error}>
+                {!!loginErrorMessage && (
+                    <span className={cls.error_text}>{loginErrorMessage}</span>
+                )}
             </div>
             <div className={cls.formBottom}>
                 <FormControlLabel

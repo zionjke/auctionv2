@@ -30,7 +30,7 @@ export const loginService = createAsyncThunk<User, AuthData>(
 
             return user;
         } catch (e) {
-            return thunkAPI.rejectWithValue(e);
+            return thunkAPI.rejectWithValue(e.response.data.message);
         }
     },
 );
