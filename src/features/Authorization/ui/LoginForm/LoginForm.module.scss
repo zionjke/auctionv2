@@ -18,10 +18,12 @@
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 1.33;
+    color: var(--primary-color);
   }
 
   &_link {
     text-decoration: none;
+    color: var(--active-color);
 
     @include font($font-l);
   }
@@ -50,6 +52,6 @@
   @include font($font-m);
 
   &_text {
-    color: red;
+    color: var(--red-light);
   }
 }

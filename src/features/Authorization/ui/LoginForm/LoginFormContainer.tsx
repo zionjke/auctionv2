@@ -8,6 +8,7 @@ import { loginService, loginBySecretKeyService } from 'features/Authorization';
 import { RoutePath, Routes } from 'shared/config/routeConfig';
 import { getUserAuthError } from 'entities/User/model/selectors/getUserAuthError/getUserAuthError';
 import { useAppDispatch } from 'shared/hooks';
+import { getUserIsLoading } from 'entities/User';
 import { AuthData } from '../../model/types/loginSchema';
 import { getDefaultInitialValues, getValidationSchema } from './utils/utils';
 import LoginFormComponent from './LoginFormComponent';
@@ -19,6 +20,7 @@ const LoginFormContainer:FC<LoginContainerFormProps> = memo(() => {
     const intl = useIntl();
     const dispatch = useAppDispatch();
     const loginErrorMessage = useSelector(getUserAuthError);
+    const isLoading = useSelector(getUserIsLoading);
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const defaultInitialValues = getDefaultInitialValues();
@@ -53,6 +55,7 @@ const LoginFormContainer:FC<LoginContainerFormProps> = memo(() => {
             initialValues={defaultInitialValues}
             handleSubmit={handleSubmit}
             loginErrorMessage={loginErrorMessage}
+            isLoading={isLoading}
         />
     );
 });

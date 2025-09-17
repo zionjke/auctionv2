@@ -3,9 +3,3 @@ export interface AuthData {
     password: string;
     rememberMe: boolean;
 }
-
-export interface LoginSchema {
-    authData: AuthData;
-    error?: string;
-    isLoading: boolean;
-}

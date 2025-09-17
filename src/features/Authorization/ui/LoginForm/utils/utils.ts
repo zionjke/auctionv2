@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
+import { AuthData } from '../../../model/types/loginSchema';
 
-export const getDefaultInitialValues = (initialValues?: Record<string, unknown>) => ({
+export const getDefaultInitialValues = ():AuthData => ({
     email: '',
     password: '',
     rememberMe: false,

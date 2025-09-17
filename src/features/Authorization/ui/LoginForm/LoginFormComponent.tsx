@@ -11,13 +11,13 @@ import cls from './LoginForm.module.scss';
 interface LoginFormComponentProps {
     className?: string;
     loginErrorMessage?: string;
+    isLoading: boolean;
     initialValues?: AuthData;
     validationSchema?: Yup.ObjectSchema<any>;
     handleSubmit: (values: AuthData) => Promise<void>;
-    onFieldChange?: () => void;
 }
 const LoginFormComponent:FC<LoginFormComponentProps> = ({
-    className, initialValues, validationSchema, handleSubmit, loginErrorMessage, onFieldChange,
+    className, initialValues, validationSchema, handleSubmit, loginErrorMessage, isLoading,
 }) => {
     const formik = useFormik({
         initialValues,
@@ -90,6 +90,7 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
                 size="large"
                 fullWidth
                 variant="contained"
+                disabled={isLoading}
             >
                 Login
             </Button>
