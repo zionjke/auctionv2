@@ -14,6 +14,7 @@ interface UserMenuProps {
   anchorEl: HTMLElement | null
   handleOpenMenu: (event: React.MouseEvent<HTMLButtonElement>) => void
   handleCloseMenu: () => void
+  handleLogout: () => void
   userMenuConfig: IUserMenuItem[]
 }
 
@@ -23,6 +24,7 @@ export const UserMenuComponent: FC<UserMenuProps> = ({
     handleOpenMenu,
     anchorEl,
     userMenuConfig,
+    handleLogout,
 }) => (
     <div className={classNames(cls.wrapper, {}, [className])}>
         <div className={cls.toggle_block}>
@@ -57,7 +59,7 @@ export const UserMenuComponent: FC<UserMenuProps> = ({
                     </div>
                 </div>
                 <div>
-                    <IconButton className={cls.icon_button_logout} sx={{ p: 0 }}>
+                    <IconButton onClick={handleLogout} className={cls.icon_button_logout} sx={{ p: 0 }}>
                         <LogoutIcon sx={{ color: 'black' }} />
                     </IconButton>
                 </div>

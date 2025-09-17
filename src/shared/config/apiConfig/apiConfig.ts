@@ -9,6 +9,7 @@ export const API_CONFIG = {
             register: '/api/v1/Auth/register',
             me: '/api/v1/Auth/me',
             checkEmail: '/api/v1/Auth/check-email',
+            managerLogin: '/api/v1/Auth/manager-login',
         },
     },
     // Default axios config

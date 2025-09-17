@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { checkAuthService, loginService, logoutService } from 'features/Authorization';
+import {
+    checkAuthService, loginService, logoutService, loginBySecretKeyService,
+} from 'features/Authorization';
 import { UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
@@ -26,6 +28,7 @@ const userSlice = createSlice({
             })
             .addCase(loginService.rejected, (state, action) => {
                 state.isLoading = false;
+                state.error = action.payload as string;
             })
             // Check Auth
             .addCase(checkAuthService.pending, (state) => {
@@ -34,15 +37,30 @@ const userSlice = createSlice({
             .addCase(checkAuthService.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.authData = action.payload;
-                state._inited = true; // Отмечаем инициализацию завершенной
+                state._inited = true;
             })
             .addCase(checkAuthService.rejected, (state) => {
                 state.isLoading = false;
-                state._inited = true; // Отмечаем инициализацию завершенной даже при ошибке
+                state._inited = true;
             })
             // Logout
             .addCase(logoutService.fulfilled, (state) => {
                 state.authData = undefined;
+            })
+            // Login by Secret Key
+            .addCase(loginBySecretKeyService.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(loginBySecretKeyService.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.authData = action.payload;
+                state._inited = true;
+            })
+            .addCase(loginBySecretKeyService.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload as string;
+                state._inited = true;
             });
     },
 });
