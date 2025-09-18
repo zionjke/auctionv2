@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig';
+import { getMainRoutes } from 'shared/config/routeConfig';
 import { PageLoader } from 'shared/ui/PageLoader';
 
-const AppRouter = () => (
+const MainRouter = () => (
     <Routes>
-        {Object.values(routeConfig)
+        {getMainRoutes()
             .map(({ element, path }) => (
                 <Route
                     key={path}
@@ -20,4 +20,4 @@ const AppRouter = () => (
     </Routes>
 );
 
-export default AppRouter;
+export default MainRouter;

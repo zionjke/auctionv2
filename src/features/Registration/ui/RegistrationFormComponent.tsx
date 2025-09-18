@@ -1,40 +1,38 @@
 import React, { FC } from 'react';
+import { classNames } from 'shared/lib/classNames';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
-import {
-    Button, Checkbox, FormControlLabel, TextField,
-} from '@mui/material';
-import { AuthData } from 'features/Authorization/model/types/loginSchema';
 import { RoutePath, Routes } from 'shared/config/routeConfig';
-import cls from './LoginForm.module.scss';
+import { Button, TextField } from '@mui/material';
+import { RegistrationData } from '../model/types/registrationSchema';
+import cls from './Registration.module.scss';
 
-interface LoginFormComponentProps {
+interface RegistrationProps {
     className?: string;
-    loginErrorMessage?: string;
-    isLoading: boolean;
-    initialValues?: AuthData;
-    validationSchema?: Yup.ObjectSchema<any>;
-    handleSubmit: (values: AuthData) => Promise<void>;
+    error:string;
+    isLoading: boolean,
+    validationSchema: Yup.ObjectSchema<any>;
+    initialValues: RegistrationData;
+    handleRegistration: (values: RegistrationData) => void;
 }
-const LoginFormComponent:FC<LoginFormComponentProps> = ({
-    className, initialValues, validationSchema, handleSubmit, loginErrorMessage, isLoading,
+const RegistrationFormComponent:FC<RegistrationProps> = ({
+    className, validationSchema, initialValues, handleRegistration, isLoading, error,
 }) => {
     const formik = useFormik({
         initialValues,
         validationSchema,
         onSubmit: async (values) => {
-            await handleSubmit(values);
+            await handleRegistration(values);
         },
         validateOnChange: true,
         validateOnBlur: true,
     });
-
     return (
-        <form onSubmit={formik.handleSubmit} className={cls.form}>
+        <form className={cls.form} onSubmit={formik.handleSubmit}>
             <div className={cls.formHeader}>
-                <h3 className={cls.formHeader_title}>Login</h3>
-                <Link className={cls.formHeader_link} to={RoutePath[Routes.REGISTRATION]}>Dont have an account?</Link>
+                <h3 className={cls.formHeader_title}>Registration</h3>
+                <Link className={cls.formHeader_link} to={RoutePath[Routes.LOGIN]}>Already have an account?</Link>
             </div>
             <div className={cls.field}>
                 <TextField
@@ -48,6 +46,20 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
                     error={formik.touched.email && Boolean(formik.errors.email)}
                     helperText={formik.touched.email && formik.errors.email}
                     value={formik.values.email}
+                />
+            </div>
+            <div className={cls.field}>
+                <TextField
+                    required
+                    id="siteUrl"
+                    name="siteUrl"
+                    label="Site Url"
+                    fullWidth
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.siteUrl && Boolean(formik.errors.siteUrl)}
+                    helperText={formik.touched.siteUrl && formik.errors.siteUrl}
+                    value={formik.values.siteUrl}
                 />
             </div>
             <div className={cls.field}>
@@ -67,23 +79,9 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
                 />
             </div>
             <div className={cls.error}>
-                {!!loginErrorMessage && (
-                    <span className={cls.error_text}>{loginErrorMessage}</span>
+                {!!error && (
+                    <span className={cls.error_text}>{error}</span>
                 )}
-            </div>
-            <div className={cls.formBottom}>
-                <FormControlLabel
-                    control={(
-                        <Checkbox
-                            id="rememberMe"
-                            name="rememberMe"
-                            onChange={formik.handleChange}
-                            checked={formik.values.rememberMe}
-                        />
-                    )}
-                    label="Keep me sign in"
-                />
-                <Link className={cls.formHeader_link} to="/">Forgot Password?</Link>
             </div>
             <Button
                 type="submit"
@@ -93,10 +91,10 @@ const LoginFormComponent:FC<LoginFormComponentProps> = ({
                 variant="contained"
                 disabled={isLoading}
             >
-                Login
+                Create Account
             </Button>
         </form>
     );
 };
 
-export default LoginFormComponent;
+export default RegistrationFormComponent;

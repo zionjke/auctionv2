@@ -1,3 +1,4 @@
-import AppRouter from './ui/AppRouter';
+import MainRouter from './ui/MainRouter';
+import AuthRouter from './ui/AuthRouter';
 
-export { AppRouter };
+export { MainRouter, AuthRouter };

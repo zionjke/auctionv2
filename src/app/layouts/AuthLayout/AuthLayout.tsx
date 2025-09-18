@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { classNames } from 'shared/lib/classNames';
 import { Footer } from 'widgets/Footer';
 import JoobleLogo from 'shared/assets/icons/jooble_default_logo.svg';
-import { LoginForm } from 'features/Authorization';
+import { AuthRouter } from 'app/providers/Router';
 import cls from './AuthLayout.module.scss';
 
 interface AuthLayoutProps {
@@ -15,7 +14,7 @@ const AuthLayout:FC<AuthLayoutProps> = ({ className }) => (
         </div>
         <div className={cls.container}>
             <main className={cls.content}>
-                <LoginForm />
+                <AuthRouter />
             </main>
         </div>
         <Footer className={cls.footer} />

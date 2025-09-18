@@ -1,4 +1,4 @@
-import { AppRouter } from 'app/providers/Router';
+import { MainRouter } from 'app/providers/Router';
 import React, { type FC } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { Footer } from 'widgets/Footer';
@@ -17,7 +17,7 @@ const MainLayout: FC<MainLayoutProps> = ({ className }) => (
             <div className={cls.content}>
                 <Header />
                 <main className={cls.main}>
-                    <AppRouter />
+                    <MainRouter />
                 </main>
                 <Footer />
             </div>

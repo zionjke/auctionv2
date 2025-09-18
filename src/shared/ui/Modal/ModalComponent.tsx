@@ -6,7 +6,7 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     onClose?: () => void;
     isOpen?: boolean;
 }
