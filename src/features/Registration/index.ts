@@ -1,5 +1,5 @@
 import { RegistrationFormLazy as RegistrationForm } from './ui/RegistrationFormContainer.lazy';
-import { registrationReducer, registrationActions } from './model/slice/registrationSlice/registrationSlice';
+import { registrationActions } from './model/slice/registrationSlice/registrationSlice';
 
-export { RegistrationForm, registrationReducer, registrationActions };
+export { RegistrationForm, registrationActions };
 export type { RegistrationSchema } from './model/types/registrationSchema';

@@ -1,11 +1,14 @@
-import React, { FC, memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/hooks';
-import { useSelector } from 'react-redux';
+import React, {
+    FC, memo, useCallback, useEffect,
+} from 'react';
+import { useAppDispatch, useAppSelector, useAsyncReducers } from 'shared/hooks';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath, Routes } from 'shared/config/routeConfig';
 import { Modal } from 'shared/ui/Modal';
+import { useStore } from 'react-redux';
+import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
 import { registrationService } from '../model/services/registrationService/registrationService';
-import { registrationActions } from '../model/slice/registrationSlice/registrationSlice';
+import { registrationActions, registrationReducer } from '../model/slice/registrationSlice/registrationSlice';
 import { RegistrationData } from '../model/types/registrationSchema';
 import RegistrationFormComponent from './RegistrationFormComponent';
 import { getDefaultInitialValues } from './utils/getDefaultInitialValues';
@@ -16,20 +19,23 @@ import {
 } from '../model/selectors/getRegistrationState/getRegistrationState';
 import { SuccessRegistration } from './SuccessRegistration/SuccessRegistration';
 
-interface RegistrationContainerProps {
+export interface RegistrationContainerProps {
     className?: string;
 }
+
 const RegistrationFormContainer:FC<RegistrationContainerProps> = memo(({ className }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
+    useAsyncReducers([{ key: 'registration', reducer: registrationReducer }]);
+
     const initialValues = getDefaultInitialValues();
     const validationSchema = getValidationSchema();
 
-    const isLoading = useSelector(getRegistrationIsLoading);
-    const error = useSelector(getRegistrationError);
-    const isSuccess = useSelector(getRegistrationIsSuccess);
-    const message = useSelector(getRegistrationMessage);
+    const isLoading = useAppSelector(getRegistrationIsLoading);
+    const isSuccess = useAppSelector(getRegistrationIsSuccess);
+    const message = useAppSelector(getRegistrationMessage);
+    const error = useAppSelector(getRegistrationError);
 
     const handleRegistration = useCallback((values:RegistrationData) => {
         dispatch(registrationService(values));

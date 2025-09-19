@@ -1,3 +1,4 @@
-import { lazy } from 'react';
+import { FC, lazy } from 'react';
+import { RegistrationContainerProps } from './RegistrationFormContainer';
 
-export const RegistrationFormLazy = lazy(async () => await import('./RegistrationFormContainer'));
+export const RegistrationFormLazy = lazy < FC<RegistrationContainerProps>>(async () => await import('./RegistrationFormContainer'));
